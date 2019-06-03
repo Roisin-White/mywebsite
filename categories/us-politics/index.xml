@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>US Politics on PJR</title>
+    <link>/categories/us-politics/</link>
+    <description>Recent content in US Politics on PJR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/us-politics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>U.S. Presidential Election Results</title>
+      <link>/post/usa_shiny/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/usa_shiny/</guid>
+      <description>Below is my second Shiny App: It’s an interface for viewing US Presidential election results. (From 1976 - 2016)
+USA Presidential Elections
+Sorry Alaska and Hawaii, I haven’t figured out how to add you yet
+Shiny is a way to create interactive documents that can be easily shared online. You can even host and deploy your apps for free.</description>
+    </item>
+    
+  </channel>
+</rss>

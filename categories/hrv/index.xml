@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HRV on PJR</title>
+    <link>/categories/hrv/</link>
+    <description>Recent content in HRV on PJR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/hrv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Visualizing ECG data with Shiny</title>
+      <link>/post/ecg_shiny/</link>
+      <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ecg_shiny/</guid>
+      <description>Below is the first Shiny App I made: It’s an interface for viewing raw ECG data and some summary statistics:
+My First Shiny App: Viewing ECG Data
+My dissertation is largely focused on studying Heart Rate Variability (HRV), and having an easy way to visualize cardiac data is really helpful for ensuring data integrity.
+This app visualizes ECG data in 30s segments. The R-peaks were identified using a function I wrote in R Studio.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>admin on RW</title>
+    <link>/authors/admin/</link>
+    <description>Recent content in admin on RW</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/author/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/author/admin/</guid>
+      <description>My name is Roisin White. I am graduating in August 2019 with my PhD in Human Development and Family Studies from The Pennsylvania State University. My research has focused on the analysis of large-scale longitudinal datasets as well as neurological experimental data to identify predictors and moderators of psychopathological outcomes in children and adolescents.
+Throughout my graduate training, I gained extensive experience in experimental design, project management, and report writing for both scientific and lay audiences.</description>
+    </item>
+    
+  </channel>
+</rss>

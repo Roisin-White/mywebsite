@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on RW</title>
+    <link>/tutorial/</link>
+    <description>Recent content in Tutorials on RW</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shiny Apps</title>
+      <link>/tutorial/shiny-menu/</link>
+      <pubDate>Sat, 23 Mar 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/tutorial/shiny-menu/</guid>
+      <description>I have recently begin teaching myself how to build Web Apps in Shiny
+Below is my second Shiny App: An interactive map for viewing US presidential election reuslts:
+USA Presidential Elections
+Below is the first Shiny App I made: It&amp;rsquo;s an interface for viewing raw ECG data some summary statistics:
+My First Shiny App: Viewing ECG Data
+My dissertation is largely focused on studying Heart Rate Variability (HRV), and having an easy way to visulaise cardiac data is really helpful for ensuring data integrity.</description>
+    </item>
+    
+    <item>
+      <title>Tidyverse Tutorials</title>
+      <link>/tutorial/tutorials-menu/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tutorial/tutorials-menu/</guid>
+      <description>Below are several tutorials I&amp;rsquo;ve created to introduce the basics of tidyverse programming
+Tutorial 1: Creating some data
+Tutorial 2: Importing and manipulating data
+Tutorial 3: Plotting with ggplot</description>
+    </item>
+    
+  </channel>
+</rss>

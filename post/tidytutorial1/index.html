@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="PJ Ryan">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This is a quick tutorial to introduce some of the basic tidyverse functions by creating some fake data
+The design of this tutorial is meant to provide an intuitive understanding of the “pipe” operator: ‘%&gt;%’
+Load the tidyverse library library(tidyverse)  Create lists to use as variables var1&lt;-rep(seq(1, 10, 1), 10) #Create a variable consisting of 10 sequential sequences of 1:10 var2&lt;-rep(seq(0, 1, 1), 50) #Create a binary 0/1 variable  Combine these variables into a tibble dat&lt;-as_tibble(cbind(var1, var2)) # (a &#39;tibble&#39; is similar to a data frame)  View the first ten rows.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/tidytutorial1/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Fauna+One">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="PJR">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="PJR">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/tidytutorial1/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="PJR">
+  <meta property="og:url" content="/post/tidytutorial1/">
+  <meta property="og:title" content="Tidy Tutorial 1: Creating some data | PJR">
+  <meta property="og:description" content="This is a quick tutorial to introduce some of the basic tidyverse functions by creating some fake data
+The design of this tutorial is meant to provide an intuitive understanding of the “pipe” operator: ‘%&gt;%’
+Load the tidyverse library library(tidyverse)  Create lists to use as variables var1&lt;-rep(seq(1, 10, 1), 10) #Create a variable consisting of 10 sequential sequences of 1:10 var2&lt;-rep(seq(0, 1, 1), 50) #Create a binary 0/1 variable  Combine these variables into a tibble dat&lt;-as_tibble(cbind(var1, var2)) # (a &#39;tibble&#39; is similar to a data frame)  View the first ten rows."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-03-10T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-03-10T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Tidy Tutorial 1: Creating some data | PJR</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">PJR</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorial/">
+            
+            <span>Tutorials</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Tidy Tutorial 1: Creating some data</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-03-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 10, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Tidy%20Tutorial%201%3a%20Creating%20some%20data&amp;url=%2fpost%2ftidytutorial1%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytutorial1%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytutorial1%2f&amp;title=Tidy%20Tutorial%201%3a%20Creating%20some%20data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytutorial1%2f&amp;title=Tidy%20Tutorial%201%3a%20Creating%20some%20data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Tidy%20Tutorial%201%3a%20Creating%20some%20data&amp;body=%2fpost%2ftidytutorial1%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>This is a quick tutorial to introduce some of the basic tidyverse functions by creating some fake data</p>
+<p>The design of this tutorial is meant to provide an intuitive understanding of the “pipe” operator: ‘%&gt;%’</p>
+<hr />
+<div id="load-the-tidyverse-library" class="section level4">
+<h4>Load the tidyverse library</h4>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<hr />
+</div>
+<div id="create-lists-to-use-as-variables" class="section level4">
+<h4>Create lists to use as variables</h4>
+<pre class="r"><code>var1&lt;-rep(seq(1, 10, 1), 10) 
+#Create a variable consisting of 10 sequential sequences of 1:10
+
+var2&lt;-rep(seq(0, 1, 1), 50)  
+#Create a binary 0/1 variable</code></pre>
+</div>
+<div id="combine-these-variables-into-a-tibble" class="section level4">
+<h4>Combine these variables into a tibble</h4>
+<pre class="r"><code>dat&lt;-as_tibble(cbind(var1, var2))        
+# (a &#39;tibble&#39; is similar to a data frame)</code></pre>
+</div>
+<div id="view-the-first-ten-rows." class="section level4">
+<h4>View the first ten rows.</h4>
+<pre class="r"><code>head(dat, 10)</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##     var1  var2
+##    &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     0
+##  2     2     1
+##  3     3     0
+##  4     4     1
+##  5     5     0
+##  6     6     1
+##  7     7     0
+##  8     8     1
+##  9     9     0
+## 10    10     1</code></pre>
+</div>
+<div id="alright-we-have-now-created-a-tibble-saved-as-dat.-it-consists-of-2-columns-and-100-rows" class="section level4">
+<h4>Alright, we have now created a tibble (saved as “dat”). It consists of 2 columns and 100 rows</h4>
+<hr />
+</div>
+<div id="tidyverse-part-1-the-pipe-operator-and-the-select-arrange-functions" class="section level2">
+<h2>Tidyverse part 1: The pipe operator and the ‘select’ + ‘arrange’ functions</h2>
+<hr />
+<div id="lets-say-we-want-var1-to-be-our-id-variable-so-that-1-10-each-represent-a-unique-individual" class="section level4">
+<h4>Let’s say we want var1 to be our ID variable, so that 1-10 each represent a unique individual</h4>
+</div>
+<div id="to-do-this-we-can-start-by-changing-the-name-of-var1-to-id-within-the-select-function" class="section level4">
+<h4>To do this, we can start by changing the name of “var1” to “id”&quot; within the select function</h4>
+<pre class="r"><code>dat&lt;-dat %&gt;% select(id=var1, var2) 
+#Here we are introducing the pipe &#39; %&gt;% &#39;operator
+
+dat</code></pre>
+<pre><code>## # A tibble: 100 x 2
+##       id  var2
+##    &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     0
+##  2     2     1
+##  3     3     0
+##  4     4     1
+##  5     5     0
+##  6     6     1
+##  7     7     0
+##  8     8     1
+##  9     9     0
+## 10    10     1
+## # … with 90 more rows</code></pre>
+</div>
+<div id="we-can-also-change-the-name-of-var2-in-a-similar-manner-lets-name-it-group-which-will-act-as-a-binary-variable" class="section level4">
+<h4>We can also change the name of var2 in a similar manner: let’s name it “group”, which will act as a binary variable</h4>
+<pre class="r"><code>dat&lt;-dat %&gt;% select(id, group=var2) 
+#Notice that the new name comes first in the expression 
+
+dat</code></pre>
+<pre><code>## # A tibble: 100 x 2
+##       id group
+##    &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     0
+##  2     2     1
+##  3     3     0
+##  4     4     1
+##  5     5     0
+##  6     6     1
+##  7     7     0
+##  8     8     1
+##  9     9     0
+## 10    10     1
+## # … with 90 more rows</code></pre>
+</div>
+<div id="ok-now-lets-say-we-want-to-rearrange-our-id-column-so-that-each-individuals-rows-are-stacked-on-top-of-each-other" class="section level4">
+<h4>Ok, now let’s say we want to rearrange our id column so that each individuals rows are ‘stacked’ on top of each other</h4>
+<pre class="r"><code>dat&lt;-dat %&gt;% arrange(id)   
+#This is the arrange function
+
+dat     </code></pre>
+<pre><code>## # A tibble: 100 x 2
+##       id group
+##    &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     0
+##  2     1     0
+##  3     1     0
+##  4     1     0
+##  5     1     0
+##  6     1     0
+##  7     1     0
+##  8     1     0
+##  9     1     0
+## 10     1     0
+## # … with 90 more rows</code></pre>
+<hr />
+</div>
+</div>
+<div id="tidyverse-part-2-the-mutate-function-and-the-group_by-function" class="section level2">
+<h2>Tidyverse part 2: The ‘mutate’ function and the ‘group_by’ function</h2>
+<hr />
+<div id="now-lets-say-we-want-to-create-a-new-variable.-here-we-will-introduce-the-mutate-function" class="section level4">
+<h4>Now lets say we want to create a new variable. Here we will introduce the mutate function</h4>
+<pre class="r"><code>dat_not_grouped&lt;-dat %&gt;% mutate(time = seq(0, 99)) 
+#Here mutate is creating a new variable called &quot;time&quot;</code></pre>
+<hr />
+</div>
+<div id="if-you-inspect-the-data-in-dat_not_grouped-you-will-see-that-we-have-created-a-time-variable-that-goes-from-0-99" class="section level4">
+<h4>If you inspect the data in “dat_not_grouped”, you will see that we have created a time variable that goes from 0-99</h4>
+</div>
+<div id="what-we-actually-want-to-do-here-is-create-a-time-variable-that-goes-in-order-from-0-9-for-each-id" class="section level4">
+<h4>What we actually want to do here is create a time variable that goes in order from 0-9 for EACH ID</h4>
+<hr />
+</div>
+<div id="in-order-to-do-this-we-will-combine-the-mutate-function-with-the-group_by-function" class="section level4">
+<h4>In order to do this, we will combine the mutate function with the group_by function</h4>
+<pre class="r"><code>dat_grouped&lt;-dat %&gt;% group_by(id) %&gt;% mutate(time = seq(0, 9))</code></pre>
+</div>
+<div id="alright-now-lets-create-a-continuous-random-variable-called-score-grouped-within-people" class="section level4">
+<h4>Alright, now lets create a continuous random variable called ‘score’, grouped within people</h4>
+<pre class="r"><code>dat&lt;-dat_grouped %&gt;%  
+  group_by(id) %&gt;%                            
+  mutate(score = rnorm(10, 0, 1.5)) %&gt;%      
+  mutate(score=round(score, 2))      
+
+#You can stack mutate functions vertically for better readability
+
+dat                                  </code></pre>
+<pre><code>## Source: local data frame [100 x 4]
+## Groups: id [10]
+## 
+## # A tibble: 100 x 4
+##       id group  time score
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+##  1     1     0     0 -0.62
+##  2     1     0     1 -0.82
+##  3     1     0     2 -1.02
+##  4     1     0     3 -2.92
+##  5     1     0     4  1.8 
+##  6     1     0     5 -1.8 
+##  7     1     0     6 -0.47
+##  8     1     0     7  2.56
+##  9     1     0     8  0   
+## 10     1     0     9  3.09
+## # … with 90 more rows</code></pre>
+<hr />
+</div>
+</div>
+<div id="tidyverse-part-3-the-filter-function" class="section level2">
+<h2>Tidyverse part 3: The filter function</h2>
+<hr />
+<div id="here-lets-view-id-5.-we-will-do-this-using-the-filter-function" class="section level4">
+<h4>Here, let’s view id == 5. We will do this using the filter function</h4>
+<pre class="r"><code>dat %&gt;% filter(id==5)                                 </code></pre>
+<pre><code>## Source: local data frame [10 x 4]
+## Groups: id [1]
+## 
+## # A tibble: 10 x 4
+##       id group  time score
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+##  1     5     0     0  1.64
+##  2     5     0     1 -1.77
+##  3     5     0     2 -0.81
+##  4     5     0     3 -0.71
+##  5     5     0     4 -0.18
+##  6     5     0     5  1.29
+##  7     5     0     6  2.44
+##  8     5     0     7  1.22
+##  9     5     0     8  0.26
+## 10     5     0     9 -0.62</code></pre>
+</div>
+<div id="we-can-also-use-filter-to-subset-only-the-data-from-group-1" class="section level4">
+<h4>We can also use filter to subset only the data from “group = 1”</h4>
+<pre class="r"><code>group_1_dat&lt;-dat %&gt;% filter(group==1)                                 
+#View the data for only group 1</code></pre>
+<hr />
+</div>
+</div>
+<div id="review-select-arrange-mutate-group_by-filter" class="section level2">
+<h2>Review: ‘select’, ‘arrange’, ‘mutate’, ‘group_by’, ‘filter’</h2>
+<hr />
+<div id="above-we-created-a-tibble-dat-and-then-applied-functions-to-dat-using-the-pipe-operator" class="section level4">
+<h4>Above we created a tibble (“dat”) and then applied functions to ‘dat’ using the pipe operator</h4>
+</div>
+<div id="for-review-of-these-functions-i-will-create-a-group_0_dat-by-applying-each-of-these-functions-at-once" class="section level4">
+<h4>For review of these functions, I will create a ‘group_0_dat’ by applying each of these functions at once</h4>
+<pre class="r"><code>dat2&lt;-as_tibble(cbind(var1, var2))   
+#This is the same as the original dat variable
+
+group_0_dat&lt;-dat2 %&gt;% 
+  select(id=var1, group=var2) %&gt;% 
+  arrange(id) %&gt;% 
+  group_by(id) %&gt;% 
+  mutate(time = seq(0, 9)) %&gt;%
+  mutate(score = round(rnorm(10, 0, 1.5), 2)) %&gt;% 
+  filter(group==0) 
+
+head(group_0_dat)                   </code></pre>
+<pre><code>## Source: local data frame [6 x 4]
+## Groups: id [1]
+## 
+## # A tibble: 6 x 4
+##      id group  time score
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+## 1     1     0     0  0.34
+## 2     1     0     1 -1.33
+## 3     1     0     2 -0.22
+## 4     1     0     3  1.11
+## 5     1     0     4 -0.46
+## 6     1     0     5 -0.53</code></pre>
+<hr />
+</div>
+</div>
+<div id="writing-out-the-tibble-dat" class="section level2">
+<h2>Writing out the tibble “dat”</h2>
+<hr />
+<div id="we-can-now-save-our-dat-tibble-as-a-csv-file-using-write.csv" class="section level5">
+<h5>We can now save our “dat” tibble as a csv file using ‘write.csv’</h5>
+<pre class="r"><code>write.csv(dat, file=&quot;Tidy1_dat.csv&quot;, row.names = FALSE)</code></pre>
+<hr />
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu9475e40123017607cf3e014e405fbc8c_109191_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">PJ Ryan</a></h5>
+    <h6 class="card-subtitle">Doctoral student in HDFS</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:pat.joseph.ryan@gmail.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/PJRyan89" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Fair Use</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d7381f2d79e6271d4da28f474f49096c.js"></script>
+
+  </body>
+</html>
+

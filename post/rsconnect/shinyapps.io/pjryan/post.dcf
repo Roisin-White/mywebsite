@@ -1,0 +1,10 @@
+name: post
+title:
+username:
+account: pjryan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 918322
+bundleId: 2070341
+url: https://pjryan.shinyapps.io/post/
+when: 1557341695.26762

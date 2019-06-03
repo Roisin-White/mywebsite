@@ -1,0 +1,251 @@
+---
+title: "TidyTutorial_1: Creating some data"
+author: ''
+date: '2019-03-11'
+slug: tidytutorial1
+categories: []
+tags: []
+fontsize: 42
+output:
+  html_document:
+    df_print: paged
+---
+
+
+
+<style type="text/css">
+
+code.r{
+  font-size: 20px;
+}
+
+</style>
+<hr />
+<pre class="r"><code>library(tidyverse)</code></pre>
+<hr />
+<div id="create-lists-to-use-as-variables" class="section level3">
+<h3>Create lists to use as variables</h3>
+<pre class="r"><code>var1&lt;-rep(seq(1, 10, 1), 10) 
+#Create a variable consisting of 10 sequential sequences of 1:10
+
+var2&lt;-rep(seq(0, 1, 1), 50)  
+#Create a binary 0/1 variable</code></pre>
+</div>
+<div id="combine-these-variables-into-a-tibble" class="section level3">
+<h3>Combine these variables into a tibble</h3>
+<pre class="r"><code>dat&lt;-as_tibble(cbind(var1, var2))        
+# (a &#39;tibble&#39; is pretty much the same thing as a data frame)</code></pre>
+</div>
+<div id="view-the-first-ten-rows." class="section level3">
+<h3>View the first ten rows.</h3>
+<pre class="r"><code>head(dat, 10)</code></pre>
+<pre><code>## # A tibble: 10 × 2
+##     var1  var2
+##    &lt;dbl&gt; &lt;dbl&gt;
+## 1      1     0
+## 2      2     1
+## 3      3     0
+## 4      4     1
+## 5      5     0
+## 6      6     1
+## 7      7     0
+## 8      8     1
+## 9      9     0
+## 10    10     1</code></pre>
+</div>
+<div id="alright-we-have-now-created-a-tibble-saved-as-dat.-it-consists-of-2-columns-and-100-rows" class="section level3">
+<h3>Alright, we have now created a tibble (saved as “dat”). It consists of 2 columns and 100 rows</h3>
+<hr />
+</div>
+<div id="tidyverse-part-1-the-pipe-operator-and-the-select-arrange-functions" class="section level1">
+<h1>Tidyverse part 1: The pipe operator and the ‘select’ + ‘arrange’ functions</h1>
+<hr />
+<div id="lets-say-we-want-var1-to-be-our-id-variable-so-that-1-10-each-represent-a-unique-individual" class="section level3">
+<h3>Let’s say we want var1 to be our ID variable, so that 1-10 each represent a unique individual</h3>
+</div>
+<div id="to-do-this-we-can-start-by-chaning-the-name-of-var1-to-id-within-the-select-function" class="section level3">
+<h3>To do this, we can start by chaning the name of “var1” to “id”&quot; within the select function</h3>
+<pre class="r"><code>dat&lt;-dat %&gt;% select(id=var1, var2) 
+#Here we are introducing the pipe &#39; %&gt;% &#39;operator
+
+dat</code></pre>
+<pre><code>## # A tibble: 100 × 2
+##       id  var2
+##    &lt;dbl&gt; &lt;dbl&gt;
+## 1      1     0
+## 2      2     1
+## 3      3     0
+## 4      4     1
+## 5      5     0
+## 6      6     1
+## 7      7     0
+## 8      8     1
+## 9      9     0
+## 10    10     1
+## # ... with 90 more rows</code></pre>
+</div>
+<div id="we-can-also-change-the-name-of-var2-in-a-similar-manner-lets-name-it-group-which-will-act-as-a-binary-variable" class="section level3">
+<h3>We can also change the name of var2 in a similar manner: let’s name it “group”, which will act as a binary variable</h3>
+<pre class="r"><code>dat&lt;-dat %&gt;% select(id, group=var2) 
+#Notice that the new name comes first in the expression 
+
+dat</code></pre>
+<pre><code>## # A tibble: 100 × 2
+##       id group
+##    &lt;dbl&gt; &lt;dbl&gt;
+## 1      1     0
+## 2      2     1
+## 3      3     0
+## 4      4     1
+## 5      5     0
+## 6      6     1
+## 7      7     0
+## 8      8     1
+## 9      9     0
+## 10    10     1
+## # ... with 90 more rows</code></pre>
+</div>
+<div id="ok-now-lets-say-we-want-to-rearrange-our-id-column-so-that-each-individuals-rows-are-stacked-on-top-of-each-other" class="section level3">
+<h3>Ok, now let’s say we want to rearrange our id column so that each individuals rows are ‘stacked’ on top of each other</h3>
+<pre class="r"><code>dat&lt;-dat %&gt;% arrange(id)   
+#This is the arrange function
+
+dat     </code></pre>
+<pre><code>## # A tibble: 100 × 2
+##       id group
+##    &lt;dbl&gt; &lt;dbl&gt;
+## 1      1     0
+## 2      1     0
+## 3      1     0
+## 4      1     0
+## 5      1     0
+## 6      1     0
+## 7      1     0
+## 8      1     0
+## 9      1     0
+## 10     1     0
+## # ... with 90 more rows</code></pre>
+<hr />
+</div>
+</div>
+<div id="tidyverse-part-2-the-mutate-function-and-the-group_by-function" class="section level1">
+<h1>Tidyverse part 2: The ‘mutate’ function and the ‘group_by’ function</h1>
+<hr />
+<div id="now-lets-say-we-want-to-create-a-new-variable.-here-we-will-introduce-the-mutate-function" class="section level3">
+<h3>Now lets say we want to create a new variable. Here we will introduce the mutate function</h3>
+<pre class="r"><code>dat_not_grouped&lt;-dat %&gt;% mutate(time = seq(0, 99)) 
+#Here mutate is creating a new variable called &quot;time&quot;</code></pre>
+<hr />
+</div>
+<div id="if-you-inspect-the-data-in-dat_not_grouped-you-will-see-that-we-have-created-a-time-variable-that-goes-from-0-99" class="section level3">
+<h3>If you inspect the data in “dat_not_grouped”, you will see that we have created a time variable that goes from 0-99</h3>
+</div>
+<div id="what-we-actually-want-to-do-here-is-create-a-time-variable-that-goes-in-order-from-0-9-for-each-id" class="section level3">
+<h3>What we actually want to do here is create a time variable that goes in order from 0-9 for EACH ID</h3>
+<hr />
+</div>
+<div id="in-order-to-do-this-we-will-combine-the-mutate-function-with-the-group_by-function" class="section level3">
+<h3>In order to do this, we will combine the mutate function with the group_by function</h3>
+<pre class="r"><code>dat_grouped&lt;-dat %&gt;% group_by(id) %&gt;% mutate(time = seq(0, 9))</code></pre>
+</div>
+<div id="alright-now-lets-create-a-continuous-random-variable-called-score-grouped-within-people" class="section level3">
+<h3>Alright, now lets create a continuous random variable called ‘score’, grouped within people</h3>
+<pre class="r"><code>dat&lt;-dat_grouped %&gt;%  
+  group_by(id) %&gt;%                            
+  mutate(score = rnorm(10, 0, 1.5)) %&gt;%      
+  mutate(score=round(score, 2))      
+
+#You can stack mutate functions vertically for better readability
+
+dat                                  </code></pre>
+<pre><code>## Source: local data frame [100 x 4]
+## Groups: id [10]
+## 
+##       id group  time score
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+## 1      1     0     0 -2.31
+## 2      1     0     1 -0.17
+## 3      1     0     2 -0.13
+## 4      1     0     3  1.57
+## 5      1     0     4 -1.35
+## 6      1     0     5  0.85
+## 7      1     0     6  1.81
+## 8      1     0     7 -0.88
+## 9      1     0     8 -0.03
+## 10     1     0     9 -2.04
+## # ... with 90 more rows</code></pre>
+<hr />
+</div>
+</div>
+<div id="tidyverse-part-3-the-filter-function" class="section level1">
+<h1>Tidyverse part 3: The filter function</h1>
+<hr />
+<div id="here-lets-view-id-5.-we-will-do-this-using-the-filter-function" class="section level3">
+<h3>Here, let’s view id == 5. We will do this using the filter function</h3>
+<pre class="r"><code>dat %&gt;% filter(id==5)                                 </code></pre>
+<pre><code>## Source: local data frame [10 x 4]
+## Groups: id [1]
+## 
+##       id group  time score
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+## 1      5     0     0  0.33
+## 2      5     0     1 -1.70
+## 3      5     0     2  0.36
+## 4      5     0     3 -0.52
+## 5      5     0     4 -0.47
+## 6      5     0     5  0.09
+## 7      5     0     6  0.12
+## 8      5     0     7  0.01
+## 9      5     0     8  0.07
+## 10     5     0     9 -1.00</code></pre>
+</div>
+<div id="we-can-also-use-filter-to-subset-only-the-data-from-group-1" class="section level3">
+<h3>We can also use filter to subset only the data from “group = 1”</h3>
+<pre class="r"><code>group_1_dat&lt;-dat %&gt;% filter(group==1)                                 
+#View the data for only group 1</code></pre>
+<hr />
+</div>
+</div>
+<div id="review-select-arrange-mutate-group_by-filter" class="section level1">
+<h1>Review: ‘select’, ‘arrange’, ‘mutate’, ‘group_by’, ‘filter’</h1>
+<hr />
+<div id="above-we-created-a-tibble-dat-and-then-applied-functions-to-dat-using-the-pipe-operator" class="section level3">
+<h3>Above we created a tibble (“dat”) and then applied functions to ‘dat’ using the pipe operator</h3>
+</div>
+<div id="for-review-of-these-functions-i-will-create-a-group_0_dat-by-applying-each-of-these-functions-at-once" class="section level3">
+<h3>For review of these functions, I will create a ‘group_0_dat’ by applying each of these functions at once</h3>
+<pre class="r"><code>dat2&lt;-as_tibble(cbind(var1, var2))   
+#This is the same as the original dat variable
+
+group_0_dat&lt;-dat2 %&gt;% 
+  select(id=var1, group=var2) %&gt;% 
+  arrange(id) %&gt;% 
+  group_by(id) %&gt;% 
+  mutate(time = seq(0, 9)) %&gt;%
+  mutate(score = round(rnorm(10, 0, 1.5), 2)) %&gt;% 
+  filter(group==0) 
+
+head(group_0_dat)                   </code></pre>
+<pre><code>## Source: local data frame [6 x 4]
+## Groups: id [1]
+## 
+##      id group  time score
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+## 1     1     0     0 -1.44
+## 2     1     0     1  1.79
+## 3     1     0     2 -1.04
+## 4     1     0     3  0.87
+## 5     1     0     4 -0.14
+## 6     1     0     5  1.12</code></pre>
+<hr />
+</div>
+</div>
+<div id="writing-out-the-tibble-dat" class="section level1">
+<h1>Writing out the tibble “dat”</h1>
+<hr />
+<div id="we-can-now-save-our-dat-tibble-as-a-csv-file-using-write.csv" class="section level4">
+<h4>We can now save our “dat” tibble as a csv file using ‘write.csv’</h4>
+<pre class="r"><code>write.csv(dat, file=&quot;Tidy1_dat.csv&quot;, row.names = FALSE)</code></pre>
+<hr />
+</div>
+</div>

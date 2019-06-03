@@ -1,0 +1,559 @@
+
+
+<p>In this tutorial we will load in the data created in the first tutorial.</p>
+<p>Once the data is loaded, we will perform a <strong>conditional mutation</strong> and introduce the <strong>group_by</strong> function</p>
+<p>Finally, we will go over how to subset your data using <strong>filter</strong> and <strong>select</strong></p>
+<hr />
+<p>library</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<div id="read-in-the-data-we-created-in-tidytutorial-1" class="section level8">
+<p>Read in the data we created in TidyTutorial 1</p>
+<pre class="r"><code>dat&lt;-read.csv(&quot;Tidy1_dat.csv&quot;)</code></pre>
+</div>
+<div id="view-the-first-10-rows" class="section level8">
+<p>View the first 10 rows</p>
+<pre class="r"><code>head(dat, 10)</code></pre>
+<pre><code>##    id group time score
+## 1   1     0    0 -1.46
+## 2   1     0    1  1.09
+## 3   1     0    2 -0.93
+## 4   1     0    3 -0.18
+## 5   1     0    4 -2.63
+## 6   1     0    5  3.36
+## 7   1     0    6 -0.34
+## 8   1     0    7 -0.24
+## 9   1     0    8 -1.18
+## 10  1     0    9  1.21</code></pre>
+<hr />
+</div>
+<div id="this-data-contains-four-variables-id-group-time-and-score" class="section level8">
+<p>This data contains four variables: id, group, time, and score</p>
+</div>
+<div id="we-will-use-this-data-to-go-over-some-basic-functions-for-data-manipulation-and-cleaning" class="section level8">
+<p>We will use this data to go over some basic functions for data manipulation and cleaning</p>
+<hr />
+</div>
+<div id="tidyverse-part-1-mastering-the-mutate-function" class="section level2">
+<h2>Tidyverse part 1: Mastering the mutate function</h2>
+<hr />
+<div id="we-can-combine-mutate-and-group_by-to-create-summary-info-for-each-id" class="section level4">
+<h4>We can combine mutate and group_by to create summary info for each id</h4>
+<pre class="r"><code>dat %&gt;% group_by(id) %&gt;% mutate(mean_score = mean(score))</code></pre>
+<pre><code>## Source: local data frame [100 x 5]
+## Groups: id [10]
+## 
+##       id group  time score mean_score
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;
+## 1      1     0     0 -1.46      -0.13
+## 2      1     0     1  1.09      -0.13
+## 3      1     0     2 -0.93      -0.13
+## 4      1     0     3 -0.18      -0.13
+## 5      1     0     4 -2.63      -0.13
+## 6      1     0     5  3.36      -0.13
+## 7      1     0     6 -0.34      -0.13
+## 8      1     0     7 -0.24      -0.13
+## 9      1     0     8 -1.18      -0.13
+## 10     1     0     9  1.21      -0.13
+## # ... with 90 more rows</code></pre>
+<pre class="r"><code>##Here we now have an average score for each person</code></pre>
+<hr />
+</div>
+<div id="we-can-also-do-a-conditional-mutate-creating-a-new-variable-based-on-an-existing-variable" class="section level4">
+<h4>We can also do a conditional mutate; creating a new variable based on an existing variable</h4>
+<pre class="r"><code>dat %&gt;% mutate(pos_neg=ifelse(score &lt; 0, &quot;negative&quot;, &quot;positive&quot;))</code></pre>
+<pre><code>##     id group time score  pos_neg
+## 1    1     0    0 -1.46 negative
+## 2    1     0    1  1.09 positive
+## 3    1     0    2 -0.93 negative
+## 4    1     0    3 -0.18 negative
+## 5    1     0    4 -2.63 negative
+## 6    1     0    5  3.36 positive
+## 7    1     0    6 -0.34 negative
+## 8    1     0    7 -0.24 negative
+## 9    1     0    8 -1.18 negative
+## 10   1     0    9  1.21 positive
+## 11   2     1    0  1.26 positive
+## 12   2     1    1  1.95 positive
+## 13   2     1    2 -0.52 negative
+## 14   2     1    3  0.99 positive
+## 15   2     1    4  1.32 positive
+## 16   2     1    5 -1.88 negative
+## 17   2     1    6 -1.18 negative
+## 18   2     1    7  0.57 positive
+## 19   2     1    8  1.43 positive
+## 20   2     1    9 -0.96 negative
+## 21   3     0    0  0.60 positive
+## 22   3     0    1  0.41 positive
+## 23   3     0    2 -1.53 negative
+## 24   3     0    3  0.95 positive
+## 25   3     0    4 -0.31 negative
+## 26   3     0    5  0.77 positive
+## 27   3     0    6 -1.59 negative
+## 28   3     0    7  0.36 positive
+## 29   3     0    8  0.05 positive
+## 30   3     0    9 -2.04 negative
+## 31   4     1    0  1.41 positive
+## 32   4     1    1 -2.11 negative
+## 33   4     1    2  0.83 positive
+## 34   4     1    3 -1.35 negative
+## 35   4     1    4  3.34 positive
+## 36   4     1    5 -0.65 negative
+## 37   4     1    6 -0.44 negative
+## 38   4     1    7 -1.38 negative
+## 39   4     1    8 -1.65 negative
+## 40   4     1    9  1.06 positive
+## 41   5     0    0  0.61 positive
+## 42   5     0    1  3.07 positive
+## 43   5     0    2  1.02 positive
+## 44   5     0    3 -0.75 negative
+## 45   5     0    4 -1.05 negative
+## 46   5     0    5 -0.37 negative
+## 47   5     0    6  1.26 positive
+## 48   5     0    7  0.23 positive
+## 49   5     0    8 -1.74 negative
+## 50   5     0    9  0.19 positive
+## 51   6     1    0 -1.05 negative
+## 52   6     1    1 -1.29 negative
+## 53   6     1    2  1.67 positive
+## 54   6     1    3 -1.32 negative
+## 55   6     1    4 -3.04 negative
+## 56   6     1    5 -1.54 negative
+## 57   6     1    6 -1.12 negative
+## 58   6     1    7 -0.74 negative
+## 59   6     1    8 -0.44 negative
+## 60   6     1    9 -0.04 negative
+## 61   7     0    0 -0.38 negative
+## 62   7     0    1 -1.75 negative
+## 63   7     0    2 -0.94 negative
+## 64   7     0    3  0.62 positive
+## 65   7     0    4  2.22 positive
+## 66   7     0    5  0.82 positive
+## 67   7     0    6 -0.46 negative
+## 68   7     0    7 -0.07 negative
+## 69   7     0    8  3.66 positive
+## 70   7     0    9 -0.07 negative
+## 71   8     1    0 -1.40 negative
+## 72   8     1    1  0.16 positive
+## 73   8     1    2 -1.72 negative
+## 74   8     1    3 -0.88 negative
+## 75   8     1    4  1.82 positive
+## 76   8     1    5 -1.22 negative
+## 77   8     1    6  0.60 positive
+## 78   8     1    7  2.21 positive
+## 79   8     1    8  1.47 positive
+## 80   8     1    9 -1.78 negative
+## 81   9     0    0 -2.19 negative
+## 82   9     0    1 -2.33 negative
+## 83   9     0    2 -1.61 negative
+## 84   9     0    3  0.36 positive
+## 85   9     0    4 -2.56 negative
+## 86   9     0    5 -0.41 negative
+## 87   9     0    6  1.81 positive
+## 88   9     0    7 -1.23 negative
+## 89   9     0    8 -1.82 negative
+## 90   9     0    9  1.16 positive
+## 91  10     1    0  1.10 positive
+## 92  10     1    1  1.14 positive
+## 93  10     1    2  0.12 positive
+## 94  10     1    3  3.09 positive
+## 95  10     1    4 -1.63 negative
+## 96  10     1    5  2.28 positive
+## 97  10     1    6  1.70 positive
+## 98  10     1    7  1.68 positive
+## 99  10     1    8 -3.38 negative
+## 100 10     1    9  1.25 positive</code></pre>
+<pre class="r"><code>##Here we are creating a variable indicating whether the score is positive or negative </code></pre>
+<hr />
+</div>
+<div id="lets-combine-these-techniques-to-label-each-persons-average-score-as-positive-or-negative" class="section level4">
+<h4>Let’s combine these techniques to label each person’s average score as positive or negative</h4>
+<pre class="r"><code>dat %&gt;% 
+  group_by(id) %&gt;% 
+  mutate(mean_score = mean(score)) %&gt;% 
+  mutate(pos_neg_mean=ifelse(mean_score &lt; 0, &quot;negative&quot;, &quot;positive&quot;))</code></pre>
+<pre><code>## Source: local data frame [100 x 6]
+## Groups: id [10]
+## 
+##       id group  time score mean_score pos_neg_mean
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;        &lt;chr&gt;
+## 1      1     0     0 -1.46      -0.13     negative
+## 2      1     0     1  1.09      -0.13     negative
+## 3      1     0     2 -0.93      -0.13     negative
+## 4      1     0     3 -0.18      -0.13     negative
+## 5      1     0     4 -2.63      -0.13     negative
+## 6      1     0     5  3.36      -0.13     negative
+## 7      1     0     6 -0.34      -0.13     negative
+## 8      1     0     7 -0.24      -0.13     negative
+## 9      1     0     8 -1.18      -0.13     negative
+## 10     1     0     9  1.21      -0.13     negative
+## # ... with 90 more rows</code></pre>
+<pre class="r"><code>##Here we are creating a variable indicating whether the mean score is positive or negative </code></pre>
+<hr />
+</div>
+<div id="lets-create-a-few-more-summary-variables-and-save-it-as-summary_dat" class="section level4">
+<h4>Let’s create a few more summary variables and save it as “summary_dat”</h4>
+<pre class="r"><code>summary_dat&lt;-dat %&gt;% 
+  group_by(id) %&gt;% 
+  mutate(mean_score = mean(score)) %&gt;% ##mean
+  mutate(var_score = var(score)) %&gt;% ##variance
+  mutate(min_score = min(score)) %&gt;% ##max
+  mutate(max_score = max(score))     ##min</code></pre>
+<hr />
+</div>
+</div>
+<div id="tidyverse-part-2-choosing-specific-columns-select-and-rows-filter" class="section level2">
+<h2>Tidyverse part 2: Choosing specific columns (select) and rows (filter)</h2>
+<hr />
+<div id="viewing-our-summary-data-we-have-a-lot-of-redundant-rows-containing-the-same-info" class="section level4">
+<h4>Viewing our summary data, we have a lot of redundant rows containing the same info</h4>
+<pre class="r"><code>summary_dat</code></pre>
+<pre><code>## Source: local data frame [100 x 8]
+## Groups: id [10]
+## 
+##       id group  time score mean_score var_score min_score max_score
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1      1     0     0 -1.46      -0.13  2.809356     -2.63      3.36
+## 2      1     0     1  1.09      -0.13  2.809356     -2.63      3.36
+## 3      1     0     2 -0.93      -0.13  2.809356     -2.63      3.36
+## 4      1     0     3 -0.18      -0.13  2.809356     -2.63      3.36
+## 5      1     0     4 -2.63      -0.13  2.809356     -2.63      3.36
+## 6      1     0     5  3.36      -0.13  2.809356     -2.63      3.36
+## 7      1     0     6 -0.34      -0.13  2.809356     -2.63      3.36
+## 8      1     0     7 -0.24      -0.13  2.809356     -2.63      3.36
+## 9      1     0     8 -1.18      -0.13  2.809356     -2.63      3.36
+## 10     1     0     9  1.21      -0.13  2.809356     -2.63      3.36
+## # ... with 90 more rows</code></pre>
+<hr />
+</div>
+<div id="if-we-only-want-to-view-our-summary-variables-first-we-can-select-them" class="section level4">
+<h4>If we only want to view our summary variables, first we can select them</h4>
+<pre class="r"><code>summary_dat %&gt;% select(id, mean_score:max_score)</code></pre>
+<pre><code>## Source: local data frame [100 x 5]
+## Groups: id [10]
+## 
+##       id mean_score var_score min_score max_score
+##    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1      1      -0.13  2.809356     -2.63      3.36
+## 2      1      -0.13  2.809356     -2.63      3.36
+## 3      1      -0.13  2.809356     -2.63      3.36
+## 4      1      -0.13  2.809356     -2.63      3.36
+## 5      1      -0.13  2.809356     -2.63      3.36
+## 6      1      -0.13  2.809356     -2.63      3.36
+## 7      1      -0.13  2.809356     -2.63      3.36
+## 8      1      -0.13  2.809356     -2.63      3.36
+## 9      1      -0.13  2.809356     -2.63      3.36
+## 10     1      -0.13  2.809356     -2.63      3.36
+## # ... with 90 more rows</code></pre>
+<pre class="r"><code>##This selects id plus all columns between mean_score and max_score</code></pre>
+<hr />
+</div>
+<div id="once-we-have-subsetted-our-summary-columns-we-can-use-unique-get-1-row-per-person" class="section level4">
+<h4>Once we have subsetted our summary columns, we can use ‘unique’ get 1 row per person</h4>
+<pre class="r"><code>summary_dat&lt;-summary_dat %&gt;% select(id, mean_score:max_score) %&gt;% unique()
+summary_dat</code></pre>
+<pre><code>## Source: local data frame [10 x 5]
+## Groups: id [10]
+## 
+##       id mean_score var_score min_score max_score
+##    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1      1     -0.130  2.809356     -2.63      3.36
+## 2      2      0.298  1.745907     -1.88      1.95
+## 3      3     -0.233  1.193268     -2.04      0.95
+## 4      4     -0.094  2.931716     -2.11      3.34
+## 5      5      0.247  1.859268     -1.74      3.07
+## 6      6     -0.891  1.441054     -3.04      1.67
+## 7      7      0.365  2.484494     -1.75      3.66
+## 8      8     -0.074  2.337538     -1.78      2.21
+## 9      9     -0.882  2.370684     -2.56      1.81
+## 10    10      0.735  3.691606     -3.38      3.09</code></pre>
+<pre class="r"><code>##Now we have a tibble with one row of summary data per id</code></pre>
+<hr />
+</div>
+<div id="lets-say-we-want-to-redo-this-process-but-only-for-people-in-group-1" class="section level4">
+<h4>Let’s say we want to redo this process, but only for people in group 1</h4>
+</div>
+<div id="starting-with-our-original-data-lets-use-filter-to-select-rows-where-group1" class="section level4">
+<h4>Starting with our original data, let’s use filter to select rows where group==1</h4>
+<pre class="r"><code>dat %&gt;% filter(group==1)</code></pre>
+<pre><code>##    id group time score
+## 1   2     1    0  1.26
+## 2   2     1    1  1.95
+## 3   2     1    2 -0.52
+## 4   2     1    3  0.99
+## 5   2     1    4  1.32
+## 6   2     1    5 -1.88
+## 7   2     1    6 -1.18
+## 8   2     1    7  0.57
+## 9   2     1    8  1.43
+## 10  2     1    9 -0.96
+## 11  4     1    0  1.41
+## 12  4     1    1 -2.11
+## 13  4     1    2  0.83
+## 14  4     1    3 -1.35
+## 15  4     1    4  3.34
+## 16  4     1    5 -0.65
+## 17  4     1    6 -0.44
+## 18  4     1    7 -1.38
+## 19  4     1    8 -1.65
+## 20  4     1    9  1.06
+## 21  6     1    0 -1.05
+## 22  6     1    1 -1.29
+## 23  6     1    2  1.67
+## 24  6     1    3 -1.32
+## 25  6     1    4 -3.04
+## 26  6     1    5 -1.54
+## 27  6     1    6 -1.12
+## 28  6     1    7 -0.74
+## 29  6     1    8 -0.44
+## 30  6     1    9 -0.04
+## 31  8     1    0 -1.40
+## 32  8     1    1  0.16
+## 33  8     1    2 -1.72
+## 34  8     1    3 -0.88
+## 35  8     1    4  1.82
+## 36  8     1    5 -1.22
+## 37  8     1    6  0.60
+## 38  8     1    7  2.21
+## 39  8     1    8  1.47
+## 40  8     1    9 -1.78
+## 41 10     1    0  1.10
+## 42 10     1    1  1.14
+## 43 10     1    2  0.12
+## 44 10     1    3  3.09
+## 45 10     1    4 -1.63
+## 46 10     1    5  2.28
+## 47 10     1    6  1.70
+## 48 10     1    7  1.68
+## 49 10     1    8 -3.38
+## 50 10     1    9  1.25</code></pre>
+<pre class="r"><code>##This results in 50 rows of data for 5 ids</code></pre>
+</div>
+<div id="now-we-can-add-our-group_by-mutate-select-and-unique-functions-after-the-filter" class="section level4">
+<h4>Now we can add our ‘group_by’, ‘mutate’, ‘select’, and ‘unique’ functions after the ‘filter’</h4>
+<pre class="r"><code>group_1_summary_dat&lt;-dat %&gt;% filter(group==1) %&gt;%   
+  group_by(id) %&gt;% 
+  mutate(mean_score = mean(score)) %&gt;% 
+  mutate(var_score = var(score)) %&gt;% 
+  mutate(min_score = min(score)) %&gt;% 
+  mutate(max_score = max(score)) %&gt;% 
+  select(id, group, mean_score:max_score) %&gt;% 
+  unique()
+
+group_1_summary_dat</code></pre>
+<pre><code>## Source: local data frame [5 x 6]
+## Groups: id [5]
+## 
+##      id group mean_score var_score min_score max_score
+##   &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1     2     1      0.298  1.745907     -1.88      1.95
+## 2     4     1     -0.094  2.931716     -2.11      3.34
+## 3     6     1     -0.891  1.441054     -3.04      1.67
+## 4     8     1     -0.074  2.337538     -1.78      2.21
+## 5    10     1      0.735  3.691606     -3.38      3.09</code></pre>
+<pre class="r"><code>##Here we have included &#39;group&#39; in our select call</code></pre>
+<hr />
+</div>
+<div id="now-lets-say-we-are-only-interested-in-obervations-where-the-score-variable-is-1" class="section level4">
+<h4>Now let’s say we are only interested in obervations where the “score” variable is &gt; 1</h4>
+</div>
+<div id="we-can-filter-our-dat-tibble-to-only-select-scores-1" class="section level4">
+<h4>We can filter our ‘dat’ tibble to only select scores &gt; 1</h4>
+<pre class="r"><code>dat %&gt;% filter(score &gt; 1)</code></pre>
+<pre><code>##    id group time score
+## 1   1     0    1  1.09
+## 2   1     0    5  3.36
+## 3   1     0    9  1.21
+## 4   2     1    0  1.26
+## 5   2     1    1  1.95
+## 6   2     1    4  1.32
+## 7   2     1    8  1.43
+## 8   4     1    0  1.41
+## 9   4     1    4  3.34
+## 10  4     1    9  1.06
+## 11  5     0    1  3.07
+## 12  5     0    2  1.02
+## 13  5     0    6  1.26
+## 14  6     1    2  1.67
+## 15  7     0    4  2.22
+## 16  7     0    8  3.66
+## 17  8     1    4  1.82
+## 18  8     1    7  2.21
+## 19  8     1    8  1.47
+## 20  9     0    6  1.81
+## 21  9     0    9  1.16
+## 22 10     1    0  1.10
+## 23 10     1    1  1.14
+## 24 10     1    3  3.09
+## 25 10     1    5  2.28
+## 26 10     1    6  1.70
+## 27 10     1    7  1.68
+## 28 10     1    9  1.25</code></pre>
+<pre class="r"><code>##We have 28 obervatons of score &gt; 1</code></pre>
+</div>
+<div id="we-can-filter-by-both-group-and-score-lets-subset-rows-where-group-0-and-score-is-1" class="section level4">
+<h4>We can filter by both group and score; let’s subset rows where group == 0 and score is &lt; 1</h4>
+<pre class="r"><code>dat %&gt;% filter(group==0) %&gt;% filter(score &lt; 1)</code></pre>
+<pre><code>##    id group time score
+## 1   1     0    0 -1.46
+## 2   1     0    2 -0.93
+## 3   1     0    3 -0.18
+## 4   1     0    4 -2.63
+## 5   1     0    6 -0.34
+## 6   1     0    7 -0.24
+## 7   1     0    8 -1.18
+## 8   3     0    0  0.60
+## 9   3     0    1  0.41
+## 10  3     0    2 -1.53
+## 11  3     0    3  0.95
+## 12  3     0    4 -0.31
+## 13  3     0    5  0.77
+## 14  3     0    6 -1.59
+## 15  3     0    7  0.36
+## 16  3     0    8  0.05
+## 17  3     0    9 -2.04
+## 18  5     0    0  0.61
+## 19  5     0    3 -0.75
+## 20  5     0    4 -1.05
+## 21  5     0    5 -0.37
+## 22  5     0    7  0.23
+## 23  5     0    8 -1.74
+## 24  5     0    9  0.19
+## 25  7     0    0 -0.38
+## 26  7     0    1 -1.75
+## 27  7     0    2 -0.94
+## 28  7     0    3  0.62
+## 29  7     0    5  0.82
+## 30  7     0    6 -0.46
+## 31  7     0    7 -0.07
+## 32  7     0    9 -0.07
+## 33  9     0    0 -2.19
+## 34  9     0    1 -2.33
+## 35  9     0    2 -1.61
+## 36  9     0    3  0.36
+## 37  9     0    4 -2.56
+## 38  9     0    5 -0.41
+## 39  9     0    7 -1.23
+## 40  9     0    8 -1.82</code></pre>
+<pre class="r"><code>##We have 37 obervatons where group == 0 and score is &lt; 1</code></pre>
+<hr />
+</div>
+</div>
+<div id="write-out-data-for-part-3" class="section level2">
+<h2>Write out data for part 3</h2>
+<hr />
+<div id="finally-lets-create-a-new-variable-that-we-will-use-in-part-3-of-the-tutorial" class="section level4">
+<h4>Finally, let’s create a new variable that we will use in part 3 of the tutorial</h4>
+<pre class="r"><code>dat&lt;-dat %&gt;% mutate(score_2 = score + time*.10)
+dat</code></pre>
+<pre><code>##     id group time score score_2
+## 1    1     0    0 -1.46   -1.46
+## 2    1     0    1  1.09    1.19
+## 3    1     0    2 -0.93   -0.73
+## 4    1     0    3 -0.18    0.12
+## 5    1     0    4 -2.63   -2.23
+## 6    1     0    5  3.36    3.86
+## 7    1     0    6 -0.34    0.26
+## 8    1     0    7 -0.24    0.46
+## 9    1     0    8 -1.18   -0.38
+## 10   1     0    9  1.21    2.11
+## 11   2     1    0  1.26    1.26
+## 12   2     1    1  1.95    2.05
+## 13   2     1    2 -0.52   -0.32
+## 14   2     1    3  0.99    1.29
+## 15   2     1    4  1.32    1.72
+## 16   2     1    5 -1.88   -1.38
+## 17   2     1    6 -1.18   -0.58
+## 18   2     1    7  0.57    1.27
+## 19   2     1    8  1.43    2.23
+## 20   2     1    9 -0.96   -0.06
+## 21   3     0    0  0.60    0.60
+## 22   3     0    1  0.41    0.51
+## 23   3     0    2 -1.53   -1.33
+## 24   3     0    3  0.95    1.25
+## 25   3     0    4 -0.31    0.09
+## 26   3     0    5  0.77    1.27
+## 27   3     0    6 -1.59   -0.99
+## 28   3     0    7  0.36    1.06
+## 29   3     0    8  0.05    0.85
+## 30   3     0    9 -2.04   -1.14
+## 31   4     1    0  1.41    1.41
+## 32   4     1    1 -2.11   -2.01
+## 33   4     1    2  0.83    1.03
+## 34   4     1    3 -1.35   -1.05
+## 35   4     1    4  3.34    3.74
+## 36   4     1    5 -0.65   -0.15
+## 37   4     1    6 -0.44    0.16
+## 38   4     1    7 -1.38   -0.68
+## 39   4     1    8 -1.65   -0.85
+## 40   4     1    9  1.06    1.96
+## 41   5     0    0  0.61    0.61
+## 42   5     0    1  3.07    3.17
+## 43   5     0    2  1.02    1.22
+## 44   5     0    3 -0.75   -0.45
+## 45   5     0    4 -1.05   -0.65
+## 46   5     0    5 -0.37    0.13
+## 47   5     0    6  1.26    1.86
+## 48   5     0    7  0.23    0.93
+## 49   5     0    8 -1.74   -0.94
+## 50   5     0    9  0.19    1.09
+## 51   6     1    0 -1.05   -1.05
+## 52   6     1    1 -1.29   -1.19
+## 53   6     1    2  1.67    1.87
+## 54   6     1    3 -1.32   -1.02
+## 55   6     1    4 -3.04   -2.64
+## 56   6     1    5 -1.54   -1.04
+## 57   6     1    6 -1.12   -0.52
+## 58   6     1    7 -0.74   -0.04
+## 59   6     1    8 -0.44    0.36
+## 60   6     1    9 -0.04    0.86
+## 61   7     0    0 -0.38   -0.38
+## 62   7     0    1 -1.75   -1.65
+## 63   7     0    2 -0.94   -0.74
+## 64   7     0    3  0.62    0.92
+## 65   7     0    4  2.22    2.62
+## 66   7     0    5  0.82    1.32
+## 67   7     0    6 -0.46    0.14
+## 68   7     0    7 -0.07    0.63
+## 69   7     0    8  3.66    4.46
+## 70   7     0    9 -0.07    0.83
+## 71   8     1    0 -1.40   -1.40
+## 72   8     1    1  0.16    0.26
+## 73   8     1    2 -1.72   -1.52
+## 74   8     1    3 -0.88   -0.58
+## 75   8     1    4  1.82    2.22
+## 76   8     1    5 -1.22   -0.72
+## 77   8     1    6  0.60    1.20
+## 78   8     1    7  2.21    2.91
+## 79   8     1    8  1.47    2.27
+## 80   8     1    9 -1.78   -0.88
+## 81   9     0    0 -2.19   -2.19
+## 82   9     0    1 -2.33   -2.23
+## 83   9     0    2 -1.61   -1.41
+## 84   9     0    3  0.36    0.66
+## 85   9     0    4 -2.56   -2.16
+## 86   9     0    5 -0.41    0.09
+## 87   9     0    6  1.81    2.41
+## 88   9     0    7 -1.23   -0.53
+## 89   9     0    8 -1.82   -1.02
+## 90   9     0    9  1.16    2.06
+## 91  10     1    0  1.10    1.10
+## 92  10     1    1  1.14    1.24
+## 93  10     1    2  0.12    0.32
+## 94  10     1    3  3.09    3.39
+## 95  10     1    4 -1.63   -1.23
+## 96  10     1    5  2.28    2.78
+## 97  10     1    6  1.70    2.30
+## 98  10     1    7  1.68    2.38
+## 99  10     1    8 -3.38   -2.58
+## 100 10     1    9  1.25    2.15</code></pre>
+</div>
+<div id="lets-write-out-the-data" class="section level4">
+<h4>Let’s write out the data</h4>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>## [1] &quot;/Users/Patrick/Documents/New/content/post&quot;</code></pre>
+<pre class="r"><code>##This shows you your current working directory
+##This is where the data will be written to
+
+write.csv(dat, file=&quot;Tidy2_dat.csv&quot;, row.names = FALSE)</code></pre>
+</div>
+</div>

@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="PJ Ryan">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="In this tutorial we will load in the data created in the first tutorial.
+Once the data is loaded, we will perform a conditional mutation and introduce the group_by function
+Finally, we will go over how to subset your data using filter and select
+library
+library(tidyverse) Read in the data we created in TidyTutorial 1
+dat&lt;-read.csv(&quot;Tidy1_dat.csv&quot;)  View the first 10 rows
+head(dat, 10) ## id group time score ## 1 1 0 0 -1.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/tidytutorial2/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Fauna+One">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="PJR">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="PJR">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/tidytutorial2/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="PJR">
+  <meta property="og:url" content="/post/tidytutorial2/">
+  <meta property="og:title" content="Tidy Tutorial 2: Importing and manipulating data | PJR">
+  <meta property="og:description" content="In this tutorial we will load in the data created in the first tutorial.
+Once the data is loaded, we will perform a conditional mutation and introduce the group_by function
+Finally, we will go over how to subset your data using filter and select
+library
+library(tidyverse) Read in the data we created in TidyTutorial 1
+dat&lt;-read.csv(&quot;Tidy1_dat.csv&quot;)  View the first 10 rows
+head(dat, 10) ## id group time score ## 1 1 0 0 -1."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-03-11T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-03-11T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Tidy Tutorial 2: Importing and manipulating data | PJR</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">PJR</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorial/">
+            
+            <span>Tutorials</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Tidy Tutorial 2: Importing and manipulating data</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-03-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-03-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 11, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    16 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Tidy%20Tutorial%202%3a%20Importing%20and%20manipulating%20data&amp;url=%2fpost%2ftidytutorial2%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytutorial2%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytutorial2%2f&amp;title=Tidy%20Tutorial%202%3a%20Importing%20and%20manipulating%20data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytutorial2%2f&amp;title=Tidy%20Tutorial%202%3a%20Importing%20and%20manipulating%20data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Tidy%20Tutorial%202%3a%20Importing%20and%20manipulating%20data&amp;body=%2fpost%2ftidytutorial2%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>In this tutorial we will load in the data created in the first tutorial.</p>
+<p>Once the data is loaded, we will perform a <strong>conditional mutation</strong> and introduce the <strong>group_by</strong> function</p>
+<p>Finally, we will go over how to subset your data using <strong>filter</strong> and <strong>select</strong></p>
+<hr />
+<p>library</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<div id="read-in-the-data-we-created-in-tidytutorial-1" class="section level8">
+<p>Read in the data we created in TidyTutorial 1</p>
+<pre class="r"><code>dat&lt;-read.csv(&quot;Tidy1_dat.csv&quot;)</code></pre>
+</div>
+<div id="view-the-first-10-rows" class="section level8">
+<p>View the first 10 rows</p>
+<pre class="r"><code>head(dat, 10)</code></pre>
+<pre><code>##    id group time score
+## 1   1     0    0 -1.60
+## 2   1     0    1 -0.07
+## 3   1     0    2  1.13
+## 4   1     0    3 -0.90
+## 5   1     0    4 -1.68
+## 6   1     0    5  0.05
+## 7   1     0    6 -0.41
+## 8   1     0    7  1.45
+## 9   1     0    8  2.04
+## 10  1     0    9 -1.71</code></pre>
+<hr />
+</div>
+<div id="this-data-contains-four-variables-id-group-time-and-score" class="section level8">
+<p>This data contains four variables: id, group, time, and score</p>
+</div>
+<div id="we-will-use-this-data-to-go-over-some-basic-functions-for-data-manipulation-and-cleaning" class="section level8">
+<p>We will use this data to go over some basic functions for data manipulation and cleaning</p>
+<hr />
+</div>
+<div id="tidyverse-part-1-mastering-the-mutate-function" class="section level2">
+<h2>Tidyverse part 1: Mastering the mutate function</h2>
+<hr />
+<div id="we-can-combine-mutate-and-group_by-to-create-summary-info-for-each-id" class="section level4">
+<h4>We can combine mutate and group_by to create summary info for each id</h4>
+<pre class="r"><code>dat %&gt;% group_by(id) %&gt;% mutate(mean_score = mean(score))</code></pre>
+<pre><code>## Source: local data frame [100 x 5]
+## Groups: id [10]
+## 
+## # A tibble: 100 x 5
+##       id group  time score mean_score
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;
+##  1     1     0     0 -1.6       -0.17
+##  2     1     0     1 -0.07      -0.17
+##  3     1     0     2  1.13      -0.17
+##  4     1     0     3 -0.9       -0.17
+##  5     1     0     4 -1.68      -0.17
+##  6     1     0     5  0.05      -0.17
+##  7     1     0     6 -0.41      -0.17
+##  8     1     0     7  1.45      -0.17
+##  9     1     0     8  2.04      -0.17
+## 10     1     0     9 -1.71      -0.17
+## # … with 90 more rows</code></pre>
+<pre class="r"><code>##Here we now have an average score for each person</code></pre>
+<hr />
+</div>
+<div id="we-can-also-do-a-conditional-mutate-creating-a-new-variable-based-on-an-existing-variable" class="section level4">
+<h4>We can also do a conditional mutate; creating a new variable based on an existing variable</h4>
+<pre class="r"><code>dat %&gt;% mutate(pos_neg=ifelse(score &lt; 0, &quot;negative&quot;, &quot;positive&quot;))</code></pre>
+<pre><code>##     id group time score  pos_neg
+## 1    1     0    0 -1.60 negative
+## 2    1     0    1 -0.07 negative
+## 3    1     0    2  1.13 positive
+## 4    1     0    3 -0.90 negative
+## 5    1     0    4 -1.68 negative
+## 6    1     0    5  0.05 positive
+## 7    1     0    6 -0.41 negative
+## 8    1     0    7  1.45 positive
+## 9    1     0    8  2.04 positive
+## 10   1     0    9 -1.71 negative
+## 11   2     1    0 -0.92 negative
+## 12   2     1    1 -1.14 negative
+## 13   2     1    2  2.63 positive
+## 14   2     1    3 -1.56 negative
+## 15   2     1    4 -1.06 negative
+## 16   2     1    5  0.51 positive
+## 17   2     1    6  0.18 positive
+## 18   2     1    7 -0.81 negative
+## 19   2     1    8  4.58 positive
+## 20   2     1    9 -1.64 negative
+## 21   3     0    0 -1.67 negative
+## 22   3     0    1 -1.55 negative
+## 23   3     0    2  0.23 positive
+## 24   3     0    3 -1.59 negative
+## 25   3     0    4  0.70 positive
+## 26   3     0    5 -0.32 negative
+## 27   3     0    6 -1.42 negative
+## 28   3     0    7  0.89 positive
+## 29   3     0    8 -2.74 negative
+## 30   3     0    9  1.31 positive
+## 31   4     1    0  1.49 positive
+## 32   4     1    1  0.19 positive
+## 33   4     1    2  0.26 positive
+## 34   4     1    3 -0.53 negative
+## 35   4     1    4 -0.06 negative
+## 36   4     1    5 -1.90 negative
+## 37   4     1    6 -1.10 negative
+## 38   4     1    7  3.40 positive
+## 39   4     1    8  1.01 positive
+## 40   4     1    9 -1.40 negative
+## 41   5     0    0  0.92 positive
+## 42   5     0    1 -1.82 negative
+## 43   5     0    2  0.02 positive
+## 44   5     0    3 -0.48 negative
+## 45   5     0    4 -1.14 negative
+## 46   5     0    5 -0.40 negative
+## 47   5     0    6 -0.95 negative
+## 48   5     0    7  0.63 positive
+## 49   5     0    8  1.12 positive
+## 50   5     0    9 -1.87 negative
+## 51   6     1    0  1.35 positive
+## 52   6     1    1 -2.61 negative
+## 53   6     1    2  0.44 positive
+## 54   6     1    3  0.89 positive
+## 55   6     1    4  1.62 positive
+## 56   6     1    5 -2.46 negative
+## 57   6     1    6  0.65 positive
+## 58   6     1    7  0.59 positive
+## 59   6     1    8 -2.52 negative
+## 60   6     1    9  0.99 positive
+## 61   7     0    0  0.50 positive
+## 62   7     0    1  1.76 positive
+## 63   7     0    2  1.22 positive
+## 64   7     0    3  0.52 positive
+## 65   7     0    4  0.71 positive
+## 66   7     0    5  0.80 positive
+## 67   7     0    6  1.04 positive
+## 68   7     0    7 -1.52 negative
+## 69   7     0    8 -1.86 negative
+## 70   7     0    9  2.01 positive
+## 71   8     1    0 -0.90 negative
+## 72   8     1    1 -2.00 negative
+## 73   8     1    2 -3.94 negative
+## 74   8     1    3 -0.70 negative
+## 75   8     1    4 -1.31 negative
+## 76   8     1    5  0.22 positive
+## 77   8     1    6 -1.14 negative
+## 78   8     1    7 -1.50 negative
+## 79   8     1    8 -1.78 negative
+## 80   8     1    9  0.55 positive
+## 81   9     0    0 -0.11 negative
+## 82   9     0    1 -1.22 negative
+## 83   9     0    2 -0.49 negative
+## 84   9     0    3  0.63 positive
+## 85   9     0    4  0.19 positive
+## 86   9     0    5 -0.43 negative
+## 87   9     0    6 -1.16 negative
+## 88   9     0    7  0.01 positive
+## 89   9     0    8  0.72 positive
+## 90   9     0    9 -0.70 negative
+## 91  10     1    0 -3.81 negative
+## 92  10     1    1  0.62 positive
+## 93  10     1    2  0.81 positive
+## 94  10     1    3  0.04 positive
+## 95  10     1    4 -1.39 negative
+## 96  10     1    5 -0.61 negative
+## 97  10     1    6 -1.23 negative
+## 98  10     1    7  0.55 positive
+## 99  10     1    8  1.02 positive
+## 100 10     1    9  0.94 positive</code></pre>
+<pre class="r"><code>##Here we are creating a variable indicating whether the score is positive or negative </code></pre>
+<hr />
+</div>
+<div id="lets-combine-these-techniques-to-label-each-persons-average-score-as-positive-or-negative" class="section level4">
+<h4>Let’s combine these techniques to label each person’s average score as positive or negative</h4>
+<pre class="r"><code>dat %&gt;% 
+  group_by(id) %&gt;% 
+  mutate(mean_score = mean(score)) %&gt;% 
+  mutate(pos_neg_mean=ifelse(mean_score &lt; 0, &quot;negative&quot;, &quot;positive&quot;))</code></pre>
+<pre><code>## Source: local data frame [100 x 6]
+## Groups: id [10]
+## 
+## # A tibble: 100 x 6
+##       id group  time score mean_score pos_neg_mean
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;       
+##  1     1     0     0 -1.6       -0.17 negative    
+##  2     1     0     1 -0.07      -0.17 negative    
+##  3     1     0     2  1.13      -0.17 negative    
+##  4     1     0     3 -0.9       -0.17 negative    
+##  5     1     0     4 -1.68      -0.17 negative    
+##  6     1     0     5  0.05      -0.17 negative    
+##  7     1     0     6 -0.41      -0.17 negative    
+##  8     1     0     7  1.45      -0.17 negative    
+##  9     1     0     8  2.04      -0.17 negative    
+## 10     1     0     9 -1.71      -0.17 negative    
+## # … with 90 more rows</code></pre>
+<pre class="r"><code>##Here we are creating a variable indicating whether the mean score is positive or negative </code></pre>
+<hr />
+</div>
+<div id="lets-create-a-few-more-summary-variables-and-save-it-as-summary_dat" class="section level4">
+<h4>Let’s create a few more summary variables and save it as “summary_dat”</h4>
+<pre class="r"><code>summary_dat&lt;-dat %&gt;% 
+  group_by(id) %&gt;% 
+  mutate(mean_score = mean(score)) %&gt;% ##mean
+  mutate(var_score = var(score)) %&gt;% ##variance
+  mutate(min_score = min(score)) %&gt;% ##max
+  mutate(max_score = max(score))     ##min</code></pre>
+<hr />
+</div>
+</div>
+<div id="tidyverse-part-2-choosing-specific-columns-select-and-rows-filter" class="section level2">
+<h2>Tidyverse part 2: Choosing specific columns (select) and rows (filter)</h2>
+<hr />
+<div id="viewing-our-summary-data-we-have-a-lot-of-redundant-rows-containing-the-same-info" class="section level4">
+<h4>Viewing our summary data, we have a lot of redundant rows containing the same info</h4>
+<pre class="r"><code>summary_dat</code></pre>
+<pre><code>## Source: local data frame [100 x 8]
+## Groups: id [10]
+## 
+## # A tibble: 100 x 8
+##       id group  time score mean_score var_score min_score max_score
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1     1     0     0 -1.6       -0.17      1.84     -1.71      2.04
+##  2     1     0     1 -0.07      -0.17      1.84     -1.71      2.04
+##  3     1     0     2  1.13      -0.17      1.84     -1.71      2.04
+##  4     1     0     3 -0.9       -0.17      1.84     -1.71      2.04
+##  5     1     0     4 -1.68      -0.17      1.84     -1.71      2.04
+##  6     1     0     5  0.05      -0.17      1.84     -1.71      2.04
+##  7     1     0     6 -0.41      -0.17      1.84     -1.71      2.04
+##  8     1     0     7  1.45      -0.17      1.84     -1.71      2.04
+##  9     1     0     8  2.04      -0.17      1.84     -1.71      2.04
+## 10     1     0     9 -1.71      -0.17      1.84     -1.71      2.04
+## # … with 90 more rows</code></pre>
+<hr />
+</div>
+<div id="if-we-only-want-to-view-our-summary-variables-first-we-can-select-them" class="section level4">
+<h4>If we only want to view our summary variables, first we can select them</h4>
+<pre class="r"><code>summary_dat %&gt;% select(id, mean_score:max_score)</code></pre>
+<pre><code>## Source: local data frame [100 x 5]
+## Groups: id [10]
+## 
+## # A tibble: 100 x 5
+##       id mean_score var_score min_score max_score
+##    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1     1      -0.17      1.84     -1.71      2.04
+##  2     1      -0.17      1.84     -1.71      2.04
+##  3     1      -0.17      1.84     -1.71      2.04
+##  4     1      -0.17      1.84     -1.71      2.04
+##  5     1      -0.17      1.84     -1.71      2.04
+##  6     1      -0.17      1.84     -1.71      2.04
+##  7     1      -0.17      1.84     -1.71      2.04
+##  8     1      -0.17      1.84     -1.71      2.04
+##  9     1      -0.17      1.84     -1.71      2.04
+## 10     1      -0.17      1.84     -1.71      2.04
+## # … with 90 more rows</code></pre>
+<pre class="r"><code>##This selects id plus all columns between mean_score and max_score</code></pre>
+<hr />
+</div>
+<div id="once-we-have-subsetted-our-summary-columns-we-can-use-unique-get-1-row-per-person" class="section level4">
+<h4>Once we have subsetted our summary columns, we can use ‘unique’ get 1 row per person</h4>
+<pre class="r"><code>summary_dat&lt;-summary_dat %&gt;% select(id, mean_score:max_score) %&gt;% unique()
+summary_dat</code></pre>
+<pre><code>## Source: local data frame [10 x 5]
+## Groups: id [10]
+## 
+## # A tibble: 10 x 5
+##       id mean_score var_score min_score max_score
+##    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1     1     -0.17      1.84      -1.71      2.04
+##  2     2      0.077     4.13      -1.64      4.58
+##  3     3     -0.616     1.84      -2.74      1.31
+##  4     4      0.136     2.42      -1.9       3.4 
+##  5     5     -0.397     1.15      -1.87      1.12
+##  6     6     -0.106     2.92      -2.61      1.62
+##  7     7      0.518     1.61      -1.86      2.01
+##  8     8     -1.25      1.55      -3.94      0.55
+##  9     9     -0.256     0.451     -1.22      0.72
+## 10    10     -0.306     2.30      -3.81      1.02</code></pre>
+<pre class="r"><code>##Now we have a tibble with one row of summary data per id</code></pre>
+<hr />
+</div>
+<div id="lets-say-we-want-to-redo-this-process-but-only-for-people-in-group-1" class="section level4">
+<h4>Let’s say we want to redo this process, but only for people in group 1</h4>
+</div>
+<div id="starting-with-our-original-data-lets-use-filter-to-select-rows-where-group1" class="section level4">
+<h4>Starting with our original data, let’s use filter to select rows where group==1</h4>
+<pre class="r"><code>dat %&gt;% filter(group==1)</code></pre>
+<pre><code>##    id group time score
+## 1   2     1    0 -0.92
+## 2   2     1    1 -1.14
+## 3   2     1    2  2.63
+## 4   2     1    3 -1.56
+## 5   2     1    4 -1.06
+## 6   2     1    5  0.51
+## 7   2     1    6  0.18
+## 8   2     1    7 -0.81
+## 9   2     1    8  4.58
+## 10  2     1    9 -1.64
+## 11  4     1    0  1.49
+## 12  4     1    1  0.19
+## 13  4     1    2  0.26
+## 14  4     1    3 -0.53
+## 15  4     1    4 -0.06
+## 16  4     1    5 -1.90
+## 17  4     1    6 -1.10
+## 18  4     1    7  3.40
+## 19  4     1    8  1.01
+## 20  4     1    9 -1.40
+## 21  6     1    0  1.35
+## 22  6     1    1 -2.61
+## 23  6     1    2  0.44
+## 24  6     1    3  0.89
+## 25  6     1    4  1.62
+## 26  6     1    5 -2.46
+## 27  6     1    6  0.65
+## 28  6     1    7  0.59
+## 29  6     1    8 -2.52
+## 30  6     1    9  0.99
+## 31  8     1    0 -0.90
+## 32  8     1    1 -2.00
+## 33  8     1    2 -3.94
+## 34  8     1    3 -0.70
+## 35  8     1    4 -1.31
+## 36  8     1    5  0.22
+## 37  8     1    6 -1.14
+## 38  8     1    7 -1.50
+## 39  8     1    8 -1.78
+## 40  8     1    9  0.55
+## 41 10     1    0 -3.81
+## 42 10     1    1  0.62
+## 43 10     1    2  0.81
+## 44 10     1    3  0.04
+## 45 10     1    4 -1.39
+## 46 10     1    5 -0.61
+## 47 10     1    6 -1.23
+## 48 10     1    7  0.55
+## 49 10     1    8  1.02
+## 50 10     1    9  0.94</code></pre>
+<pre class="r"><code>##This results in 50 rows of data for 5 ids</code></pre>
+</div>
+<div id="now-we-can-add-our-group_by-mutate-select-and-unique-functions-after-the-filter" class="section level4">
+<h4>Now we can add our ‘group_by’, ‘mutate’, ‘select’, and ‘unique’ functions after the ‘filter’</h4>
+<pre class="r"><code>group_1_summary_dat&lt;-dat %&gt;% filter(group==1) %&gt;%   
+  group_by(id) %&gt;% 
+  mutate(mean_score = mean(score)) %&gt;% 
+  mutate(var_score = var(score)) %&gt;% 
+  mutate(min_score = min(score)) %&gt;% 
+  mutate(max_score = max(score)) %&gt;% 
+  select(id, group, mean_score:max_score) %&gt;% 
+  unique()
+
+group_1_summary_dat</code></pre>
+<pre><code>## Source: local data frame [5 x 6]
+## Groups: id [5]
+## 
+## # A tibble: 5 x 6
+##      id group mean_score var_score min_score max_score
+##   &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1     2     1      0.077      4.13     -1.64      4.58
+## 2     4     1      0.136      2.42     -1.9       3.4 
+## 3     6     1     -0.106      2.92     -2.61      1.62
+## 4     8     1     -1.25       1.55     -3.94      0.55
+## 5    10     1     -0.306      2.30     -3.81      1.02</code></pre>
+<pre class="r"><code>##Here we have included &#39;group&#39; in our select call</code></pre>
+<hr />
+</div>
+<div id="now-lets-say-we-are-only-interested-in-obervations-where-the-score-variable-is-1" class="section level4">
+<h4>Now let’s say we are only interested in obervations where the “score” variable is &gt; 1</h4>
+</div>
+<div id="we-can-filter-our-dat-tibble-to-only-select-scores-1" class="section level4">
+<h4>We can filter our ‘dat’ tibble to only select scores &gt; 1</h4>
+<pre class="r"><code>dat %&gt;% filter(score &gt; 1)</code></pre>
+<pre><code>##    id group time score
+## 1   1     0    2  1.13
+## 2   1     0    7  1.45
+## 3   1     0    8  2.04
+## 4   2     1    2  2.63
+## 5   2     1    8  4.58
+## 6   3     0    9  1.31
+## 7   4     1    0  1.49
+## 8   4     1    7  3.40
+## 9   4     1    8  1.01
+## 10  5     0    8  1.12
+## 11  6     1    0  1.35
+## 12  6     1    4  1.62
+## 13  7     0    1  1.76
+## 14  7     0    2  1.22
+## 15  7     0    6  1.04
+## 16  7     0    9  2.01
+## 17 10     1    8  1.02</code></pre>
+<pre class="r"><code>##We have 28 obervatons of score &gt; 1</code></pre>
+</div>
+<div id="we-can-filter-by-both-group-and-score-lets-subset-rows-where-group-0-and-score-is-1" class="section level4">
+<h4>We can filter by both group and score; let’s subset rows where group == 0 and score is &lt; 1</h4>
+<pre class="r"><code>dat %&gt;% filter(group==0) %&gt;% filter(score &lt; 1)</code></pre>
+<pre><code>##    id group time score
+## 1   1     0    0 -1.60
+## 2   1     0    1 -0.07
+## 3   1     0    3 -0.90
+## 4   1     0    4 -1.68
+## 5   1     0    5  0.05
+## 6   1     0    6 -0.41
+## 7   1     0    9 -1.71
+## 8   3     0    0 -1.67
+## 9   3     0    1 -1.55
+## 10  3     0    2  0.23
+## 11  3     0    3 -1.59
+## 12  3     0    4  0.70
+## 13  3     0    5 -0.32
+## 14  3     0    6 -1.42
+## 15  3     0    7  0.89
+## 16  3     0    8 -2.74
+## 17  5     0    0  0.92
+## 18  5     0    1 -1.82
+## 19  5     0    2  0.02
+## 20  5     0    3 -0.48
+## 21  5     0    4 -1.14
+## 22  5     0    5 -0.40
+## 23  5     0    6 -0.95
+## 24  5     0    7  0.63
+## 25  5     0    9 -1.87
+## 26  7     0    0  0.50
+## 27  7     0    3  0.52
+## 28  7     0    4  0.71
+## 29  7     0    5  0.80
+## 30  7     0    7 -1.52
+## 31  7     0    8 -1.86
+## 32  9     0    0 -0.11
+## 33  9     0    1 -1.22
+## 34  9     0    2 -0.49
+## 35  9     0    3  0.63
+## 36  9     0    4  0.19
+## 37  9     0    5 -0.43
+## 38  9     0    6 -1.16
+## 39  9     0    7  0.01
+## 40  9     0    8  0.72
+## 41  9     0    9 -0.70</code></pre>
+<pre class="r"><code>##We have 37 obervatons where group == 0 and score is &lt; 1</code></pre>
+<hr />
+</div>
+</div>
+<div id="write-out-data-for-part-3" class="section level2">
+<h2>Write out data for part 3</h2>
+<hr />
+<div id="finally-lets-create-a-new-variable-that-we-will-use-in-part-3-of-the-tutorial" class="section level4">
+<h4>Finally, let’s create a new variable that we will use in part 3 of the tutorial</h4>
+<pre class="r"><code>dat&lt;-dat %&gt;% mutate(score_2 = score + time*.50)
+dat</code></pre>
+<pre><code>##     id group time score score_2
+## 1    1     0    0 -1.60   -1.60
+## 2    1     0    1 -0.07    0.43
+## 3    1     0    2  1.13    2.13
+## 4    1     0    3 -0.90    0.60
+## 5    1     0    4 -1.68    0.32
+## 6    1     0    5  0.05    2.55
+## 7    1     0    6 -0.41    2.59
+## 8    1     0    7  1.45    4.95
+## 9    1     0    8  2.04    6.04
+## 10   1     0    9 -1.71    2.79
+## 11   2     1    0 -0.92   -0.92
+## 12   2     1    1 -1.14   -0.64
+## 13   2     1    2  2.63    3.63
+## 14   2     1    3 -1.56   -0.06
+## 15   2     1    4 -1.06    0.94
+## 16   2     1    5  0.51    3.01
+## 17   2     1    6  0.18    3.18
+## 18   2     1    7 -0.81    2.69
+## 19   2     1    8  4.58    8.58
+## 20   2     1    9 -1.64    2.86
+## 21   3     0    0 -1.67   -1.67
+## 22   3     0    1 -1.55   -1.05
+## 23   3     0    2  0.23    1.23
+## 24   3     0    3 -1.59   -0.09
+## 25   3     0    4  0.70    2.70
+## 26   3     0    5 -0.32    2.18
+## 27   3     0    6 -1.42    1.58
+## 28   3     0    7  0.89    4.39
+## 29   3     0    8 -2.74    1.26
+## 30   3     0    9  1.31    5.81
+## 31   4     1    0  1.49    1.49
+## 32   4     1    1  0.19    0.69
+## 33   4     1    2  0.26    1.26
+## 34   4     1    3 -0.53    0.97
+## 35   4     1    4 -0.06    1.94
+## 36   4     1    5 -1.90    0.60
+## 37   4     1    6 -1.10    1.90
+## 38   4     1    7  3.40    6.90
+## 39   4     1    8  1.01    5.01
+## 40   4     1    9 -1.40    3.10
+## 41   5     0    0  0.92    0.92
+## 42   5     0    1 -1.82   -1.32
+## 43   5     0    2  0.02    1.02
+## 44   5     0    3 -0.48    1.02
+## 45   5     0    4 -1.14    0.86
+## 46   5     0    5 -0.40    2.10
+## 47   5     0    6 -0.95    2.05
+## 48   5     0    7  0.63    4.13
+## 49   5     0    8  1.12    5.12
+## 50   5     0    9 -1.87    2.63
+## 51   6     1    0  1.35    1.35
+## 52   6     1    1 -2.61   -2.11
+## 53   6     1    2  0.44    1.44
+## 54   6     1    3  0.89    2.39
+## 55   6     1    4  1.62    3.62
+## 56   6     1    5 -2.46    0.04
+## 57   6     1    6  0.65    3.65
+## 58   6     1    7  0.59    4.09
+## 59   6     1    8 -2.52    1.48
+## 60   6     1    9  0.99    5.49
+## 61   7     0    0  0.50    0.50
+## 62   7     0    1  1.76    2.26
+## 63   7     0    2  1.22    2.22
+## 64   7     0    3  0.52    2.02
+## 65   7     0    4  0.71    2.71
+## 66   7     0    5  0.80    3.30
+## 67   7     0    6  1.04    4.04
+## 68   7     0    7 -1.52    1.98
+## 69   7     0    8 -1.86    2.14
+## 70   7     0    9  2.01    6.51
+## 71   8     1    0 -0.90   -0.90
+## 72   8     1    1 -2.00   -1.50
+## 73   8     1    2 -3.94   -2.94
+## 74   8     1    3 -0.70    0.80
+## 75   8     1    4 -1.31    0.69
+## 76   8     1    5  0.22    2.72
+## 77   8     1    6 -1.14    1.86
+## 78   8     1    7 -1.50    2.00
+## 79   8     1    8 -1.78    2.22
+## 80   8     1    9  0.55    5.05
+## 81   9     0    0 -0.11   -0.11
+## 82   9     0    1 -1.22   -0.72
+## 83   9     0    2 -0.49    0.51
+## 84   9     0    3  0.63    2.13
+## 85   9     0    4  0.19    2.19
+## 86   9     0    5 -0.43    2.07
+## 87   9     0    6 -1.16    1.84
+## 88   9     0    7  0.01    3.51
+## 89   9     0    8  0.72    4.72
+## 90   9     0    9 -0.70    3.80
+## 91  10     1    0 -3.81   -3.81
+## 92  10     1    1  0.62    1.12
+## 93  10     1    2  0.81    1.81
+## 94  10     1    3  0.04    1.54
+## 95  10     1    4 -1.39    0.61
+## 96  10     1    5 -0.61    1.89
+## 97  10     1    6 -1.23    1.77
+## 98  10     1    7  0.55    4.05
+## 99  10     1    8  1.02    5.02
+## 100 10     1    9  0.94    5.44</code></pre>
+</div>
+<div id="lets-write-out-the-data" class="section level4">
+<h4>Let’s write out the data</h4>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>## [1] &quot;/Users/Patrick/Documents/New/content/post&quot;</code></pre>
+<pre class="r"><code>##This shows you your current working directory
+##This is where the data will be written to
+
+write.csv(dat, file=&quot;Tidy2_dat.csv&quot;, row.names = FALSE)</code></pre>
+<hr />
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu9475e40123017607cf3e014e405fbc8c_109191_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">PJ Ryan</a></h5>
+    <h6 class="card-subtitle">Doctoral student in HDFS</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:pat.joseph.ryan@gmail.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/PJRyan89" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Fair Use</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d7381f2d79e6271d4da28f474f49096c.js"></script>
+
+  </body>
+</html>
+

@@ -1,0 +1,562 @@
+"year","state","state_po","winner","party","percent"
+1976,"Alabama","AL","Carter, Jimmy","democrat",55.73
+1976,"Alaska","AK","Ford, Gerald","republican",57.9
+1976,"Arizona","AZ","Ford, Gerald","republican",56.37
+1976,"Arkansas","AR","Carter, Jimmy","democrat",64.96
+1976,"California","CA","Ford, Gerald","republican",49.75
+1976,"Colorado","CO","Ford, Gerald","republican",54.03
+1976,"Connecticut","CT","Ford, Gerald","republican",51.88
+1976,"Delaware","DE","Carter, Jimmy","democrat",51.97
+1976,"District of Columbia","DC","Carter, Jimmy","democrat",81.63
+1976,"Florida","FL","Carter, Jimmy","democrat",51.93
+1976,"Georgia","GA","Carter, Jimmy","democrat",66.94
+1976,"Hawaii","HI","Carter, Jimmy","democrat",50.59
+1976,"Idaho","ID","Ford, Gerald","republican",59.88
+1976,"Illinois","IL","Ford, Gerald","republican",50.08
+1976,"Indiana","IN","Ford, Gerald","republican",53.32
+1976,"Iowa","IA","Ford, Gerald","republican",49.47
+1976,"Kansas","KS","Ford, Gerald","republican",52.49
+1976,"Kentucky","KY","Carter, Jimmy","democrat",52.75
+1976,"Louisiana","LA","Carter, Jimmy","democrat",51.77
+1976,"Maine","ME","Ford, Gerald","republican",48.93
+1976,"Maryland","MD","Carter, Jimmy","democrat",53.04
+1976,"Massachusetts","MA","Carter, Jimmy","democrat",56.11
+1976,"Michigan","MI","Ford, Gerald","republican",51.86
+1976,"Minnesota","MN","Carter, Jimmy","democrat",54.9
+1976,"Mississippi","MS","Carter, Jimmy","democrat",49.63
+1976,"Missouri","MO","Carter, Jimmy","democrat",51.1
+1976,"Montana","MT","Ford, Gerald","republican",52.84
+1976,"Nebraska","NE","Ford, Gerald","republican",59.2
+1976,"Nevada","NV","Ford, Gerald","republican",50.17
+1976,"New Hampshire","NH","Ford, Gerald","republican",54.75
+1976,"New Jersey","NJ","Ford, Gerald","republican",50.08
+1976,"New Mexico","NM","Ford, Gerald","republican",50.75
+1976,"New York","NY","Carter, Jimmy","democrat",48.65
+1976,"North Carolina","NC","Carter, Jimmy","democrat",55.27
+1976,"North Dakota","ND","Ford, Gerald","republican",51.69
+1976,"Ohio","OH","Carter, Jimmy","democrat",48.9
+1976,"Oklahoma","OK","Ford, Gerald","republican",49.96
+1976,"Oregon","OR","Ford, Gerald","republican",47.78
+1976,"Pennsylvania","PA","Carter, Jimmy","democrat",50.4
+1976,"Rhode Island","RI","Carter, Jimmy","democrat",55.44
+1976,"South Carolina","SC","Carter, Jimmy","democrat",56.17
+1976,"South Dakota","SD","Ford, Gerald","republican",50.39
+1976,"Tennessee","TN","Carter, Jimmy","democrat",55.94
+1976,"Texas","TX","Carter, Jimmy","democrat",51.14
+1976,"Utah","UT","Ford, Gerald","republican",62.43
+1976,"Vermont","VT","Ford, Gerald","republican",54.59
+1976,"Virginia","VA","Ford, Gerald","republican",49.29
+1976,"Washington","WA","Ford, Gerald","republican",50
+1976,"West Virginia","WV","Carter, Jimmy","democrat",58.07
+1976,"Wisconsin","WI","Carter, Jimmy","democrat",49.5
+1976,"Wyoming","WY","Ford, Gerald","republican",59.3
+1980,"Alabama","AL","Reagan, Ronald","republican",48.75
+1980,"Alaska","AK","Reagan, Ronald","republican",54.35
+1980,"Arizona","AZ","Reagan, Ronald","republican",60.61
+1980,"Arkansas","AR","Reagan, Ronald","republican",48.13
+1980,"California","CA","Reagan, Ronald","republican",52.7
+1980,"Colorado","CO","Reagan, Ronald","republican",55.07
+1980,"Connecticut","CT","Reagan, Ronald","republican",48.16
+1980,"Delaware","DE","Reagan, Ronald","republican",47.21
+1980,"District of Columbia","DC","Carter, Jimmy","democrat",74.89
+1980,"Florida","FL","Reagan, Ronald","republican",55.52
+1980,"Georgia","GA","Carter, Jimmy","democrat",55.8
+1980,"Hawaii","HI","Carter, Jimmy","democrat",44.8
+1980,"Idaho","ID","Reagan, Ronald","republican",66.46
+1980,"Illinois","IL","Reagan, Ronald","republican",49.65
+1980,"Indiana","IN","Reagan, Ronald","republican",56.01
+1980,"Iowa","IA","Reagan, Ronald","republican",51.31
+1980,"Kansas","KS","Reagan, Ronald","republican",57.85
+1980,"Kentucky","KY","Reagan, Ronald","republican",49.03
+1980,"Louisiana","LA","Reagan, Ronald","republican",51.2
+1980,"Maine","ME","Reagan, Ronald","republican",45.61
+1980,"Maryland","MD","Carter, Jimmy","democrat",47.14
+1980,"Massachusetts","MA","Reagan, Ronald","republican",41.9
+1980,"Michigan","MI","Reagan, Ronald","republican",48.99
+1980,"Minnesota","MN","Carter, Jimmy","democrat",46.5
+1980,"Mississippi","MS","Reagan, Ronald","republican",49.46
+1980,"Missouri","MO","Reagan, Ronald","republican",51.16
+1980,"Montana","MT","Reagan, Ronald","republican",56.82
+1980,"Nebraska","NE","Reagan, Ronald","republican",65.55
+1980,"Nevada","NV","Reagan, Ronald","republican",63.61
+1980,"New Hampshire","NH","Reagan, Ronald","republican",57.74
+1980,"New Jersey","NJ","Reagan, Ronald","republican",51.97
+1980,"New Mexico","NM","Reagan, Ronald","republican",54.97
+1980,"New York","NY","Carter, Jimmy","democrat",43.99
+1980,"North Carolina","NC","Reagan, Ronald","republican",49.3
+1980,"North Dakota","ND","Reagan, Ronald","republican",64.33
+1980,"Ohio","OH","Reagan, Ronald","republican",51.51
+1980,"Oklahoma","OK","Reagan, Ronald","republican",60.5
+1980,"Oregon","OR","Reagan, Ronald","republican",48.33
+1980,"Pennsylvania","PA","Reagan, Ronald","republican",49.59
+1980,"Rhode Island","RI","Carter, Jimmy","democrat",47.68
+1980,"South Carolina","SC","Reagan, Ronald","republican",49.45
+1980,"South Dakota","SD","Reagan, Ronald","republican",60.53
+1980,"Tennessee","TN","Reagan, Ronald","republican",48.7
+1980,"Texas","TX","Reagan, Ronald","republican",55.28
+1980,"Utah","UT","Reagan, Ronald","republican",72.78
+1980,"Vermont","VT","Reagan, Ronald","republican",44.36
+1980,"Virginia","VA","Reagan, Ronald","republican",53.03
+1980,"Washington","WA","Reagan, Ronald","republican",49.66
+1980,"West Virginia","WV","Carter, Jimmy","democrat",49.81
+1980,"Wisconsin","WI","Reagan, Ronald","republican",47.9
+1980,"Wyoming","WY","Reagan, Ronald","republican",62.64
+1984,"Alabama","AL","Reagan, Ronald","republican",60.54
+1984,"Alaska","AK","Reagan, Ronald","republican",66.65
+1984,"Arizona","AZ","Reagan, Ronald","republican",66.42
+1984,"Arkansas","AR","Reagan, Ronald","republican",60.47
+1984,"California","CA","Reagan, Ronald","republican",57.52
+1984,"Colorado","CO","Reagan, Ronald","republican",63.44
+1984,"Connecticut","CT","Reagan, Ronald","republican",60.73
+1984,"Delaware","DE","Reagan, Ronald","republican",59.78
+1984,"District of Columbia","DC","Mondale, Walter","democrat",85.38
+1984,"Florida","FL","Reagan, Ronald","republican",65.32
+1984,"Georgia","GA","Reagan, Ronald","republican",60.17
+1984,"Hawaii","HI","Reagan, Ronald","republican",55.1
+1984,"Idaho","ID","Reagan, Ronald","republican",72.36
+1984,"Illinois","IL","Reagan, Ronald","republican",56.17
+1984,"Indiana","IN","Reagan, Ronald","republican",61.67
+1984,"Iowa","IA","Reagan, Ronald","republican",53.27
+1984,"Kansas","KS","Reagan, Ronald","republican",66.27
+1984,"Kentucky","KY","Reagan, Ronald","republican",60.01
+1984,"Louisiana","LA","Reagan, Ronald","republican",60.77
+1984,"Maine","ME","Reagan, Ronald","republican",60.83
+1984,"Maryland","MD","Reagan, Ronald","republican",52.51
+1984,"Massachusetts","MA","Reagan, Ronald","republican",51.22
+1984,"Michigan","MI","Reagan, Ronald","republican",59.23
+1984,"Minnesota","MN","Mondale, Walter","democrat",49.72
+1984,"Mississippi","MS","Reagan, Ronald","republican",61.88
+1984,"Missouri","MO","Reagan, Ronald","republican",60.02
+1984,"Montana","MT","Reagan, Ronald","republican",60.47
+1984,"Nebraska","NE","Reagan, Ronald","republican",70.55
+1984,"Nevada","NV","Reagan, Ronald","republican",66.77
+1984,"New Hampshire","NH","Reagan, Ronald","republican",68.67
+1984,"New Jersey","NJ","Reagan, Ronald","republican",60.09
+1984,"New Mexico","NM","Reagan, Ronald","republican",59.7
+1984,"New York","NY","Reagan, Ronald","republican",49.61
+1984,"North Carolina","NC","Reagan, Ronald","republican",61.9
+1984,"North Dakota","ND","Reagan, Ronald","republican",64.84
+1984,"Ohio","OH","Reagan, Ronald","republican",58.7
+1984,"Oklahoma","OK","Reagan, Ronald","republican",68.61
+1984,"Oregon","OR","Reagan, Ronald","republican",55.91
+1984,"Pennsylvania","PA","Reagan, Ronald","republican",53.34
+1984,"Rhode Island","RI","Reagan, Ronald","republican",51.67
+1984,"South Carolina","SC","Reagan, Ronald","republican",63.55
+1984,"South Dakota","SD","Reagan, Ronald","republican",63
+1984,"Tennessee","TN","Reagan, Ronald","republican",57.84
+1984,"Texas","TX","Reagan, Ronald","republican",63.61
+1984,"Utah","UT","Reagan, Ronald","republican",74.5
+1984,"Vermont","VT","Reagan, Ronald","republican",57.92
+1984,"Virginia","VA","Reagan, Ronald","republican",62.29
+1984,"Washington","WA","Reagan, Ronald","republican",56.09
+1984,"West Virginia","WV","Reagan, Ronald","republican",55.11
+1984,"Wisconsin","WI","Reagan, Ronald","republican",54.19
+1984,"Wyoming","WY","Reagan, Ronald","republican",70.51
+1988,"Alabama","AL","Bush, George H.W.","republican",59.17
+1988,"Alaska","AK","Bush, George H.W.","republican",59.59
+1988,"Arizona","AZ","Bush, George H.W.","republican",59.95
+1988,"Arkansas","AR","Bush, George H.W.","republican",56.37
+1988,"California","CA","Bush, George H.W.","republican",51.13
+1988,"Colorado","CO","Bush, George H.W.","republican",53.06
+1988,"Connecticut","CT","Bush, George H.W.","republican",51.98
+1988,"Delaware","DE","Bush, George H.W.","republican",55.88
+1988,"District of Columbia","DC","Dukakis, Michael","democrat",82.65
+1988,"Florida","FL","Bush, George H.W.","republican",60.87
+1988,"Georgia","GA","Bush, George H.W.","republican",59.75
+1988,"Hawaii","HI","Dukakis, Michael","democrat",54.27
+1988,"Idaho","ID","Bush, George H.W.","republican",62.08
+1988,"Illinois","IL","Bush, George H.W.","republican",50.69
+1988,"Indiana","IN","Bush, George H.W.","republican",59.84
+1988,"Iowa","IA","Dukakis, Michael","democrat",54.71
+1988,"Kansas","KS","Bush, George H.W.","republican",55.79
+1988,"Kentucky","KY","Bush, George H.W.","republican",55.52
+1988,"Louisiana","LA","Bush, George H.W.","republican",54.27
+1988,"Maine","ME","Bush, George H.W.","republican",55.34
+1988,"Maryland","MD","Bush, George H.W.","republican",51.11
+1988,"Massachusetts","MA","Dukakis, Michael","democrat",53.23
+1988,"Michigan","MI","Bush, George H.W.","republican",53.57
+1988,"Minnesota","MN","Dukakis, Michael","democrat",52.91
+1988,"Mississippi","MS","Bush, George H.W.","republican",59.89
+1988,"Missouri","MO","Bush, George H.W.","republican",51.83
+1988,"Montana","MT","Bush, George H.W.","republican",52.07
+1988,"Nebraska","NE","Bush, George H.W.","republican",60.16
+1988,"Nevada","NV","Bush, George H.W.","republican",60.05
+1988,"New Hampshire","NH","Bush, George H.W.","republican",62.49
+1988,"New Jersey","NJ","Bush, George H.W.","republican",56.24
+1988,"New Mexico","NM","Bush, George H.W.","republican",51.85
+1988,"New York","NY","Dukakis, Michael","democrat",50.19
+1988,"North Carolina","NC","Bush, George H.W.","republican",57.97
+1988,"North Dakota","ND","Bush, George H.W.","republican",56.03
+1988,"Ohio","OH","Bush, George H.W.","republican",55
+1988,"Oklahoma","OK","Bush, George H.W.","republican",57.93
+1988,"Oregon","OR","Dukakis, Michael","democrat",51.28
+1988,"Pennsylvania","PA","Bush, George H.W.","republican",50.7
+1988,"Rhode Island","RI","Dukakis, Michael","democrat",55.64
+1988,"South Carolina","SC","Bush, George H.W.","republican",61.5
+1988,"South Dakota","SD","Bush, George H.W.","republican",52.85
+1988,"Tennessee","TN","Bush, George H.W.","republican",57.89
+1988,"Texas","TX","Bush, George H.W.","republican",55.95
+1988,"Utah","UT","Bush, George H.W.","republican",66.22
+1988,"Vermont","VT","Bush, George H.W.","republican",51.1
+1988,"Virginia","VA","Bush, George H.W.","republican",59.74
+1988,"Washington","WA","Dukakis, Michael","democrat",50.05
+1988,"West Virginia","WV","Dukakis, Michael","democrat",52.2
+1988,"Wisconsin","WI","Dukakis, Michael","democrat",51.41
+1988,"Wyoming","WY","Bush, George H.W.","republican",60.53
+1992,"Alabama","AL","Bush, George H.W.","republican",47.65
+1992,"Alaska","AK","Bush, George H.W.","republican",39.46
+1992,"Arizona","AZ","Bush, George H.W.","republican",38.47
+1992,"Arkansas","AR","Clinton, Bill","democrat",53.21
+1992,"California","CA","Clinton, Bill","democrat",46.01
+1992,"Colorado","CO","Clinton, Bill","democrat",40.13
+1992,"Connecticut","CT","Clinton, Bill","democrat",42.22
+1992,"Delaware","DE","Clinton, Bill","democrat",43.52
+1992,"District of Columbia","DC","Clinton, Bill","democrat",84.64
+1992,"Florida","FL","Bush, George H.W.","republican",40.9
+1992,"Georgia","GA","Clinton, Bill","democrat",43.47
+1992,"Hawaii","HI","Clinton, Bill","democrat",48.09
+1992,"Idaho","ID","Bush, George H.W.","republican",42.03
+1992,"Illinois","IL","Clinton, Bill","democrat",48.58
+1992,"Indiana","IN","Bush, George H.W.","republican",42.91
+1992,"Iowa","IA","Clinton, Bill","democrat",43.29
+1992,"Kansas","KS","Bush, George H.W.","republican",38.88
+1992,"Kentucky","KY","Clinton, Bill","democrat",44.55
+1992,"Louisiana","LA","Clinton, Bill","democrat",45.58
+1992,"Maine","ME","Clinton, Bill","democrat",38.77
+1992,"Maryland","MD","Clinton, Bill","democrat",49.81
+1992,"Massachusetts","MA","Clinton, Bill","democrat",47.54
+1992,"Michigan","MI","Clinton, Bill","democrat",43.77
+1992,"Minnesota","MN","Clinton, Bill","democrat",43.48
+1992,"Mississippi","MS","Bush, George H.W.","republican",49.68
+1992,"Missouri","MO","Clinton, Bill","democrat",44.07
+1992,"Montana","MT","Clinton, Bill","democrat",37.63
+1992,"Nebraska","NE","Bush, George H.W.","republican",46.6
+1992,"Nevada","NV","Clinton, Bill","democrat",37.36
+1992,"New Hampshire","NH","Clinton, Bill","democrat",38.91
+1992,"New Jersey","NJ","Clinton, Bill","democrat",42.95
+1992,"New Mexico","NM","Clinton, Bill","democrat",45.9
+1992,"New York","NY","Clinton, Bill","democrat",47.28
+1992,"North Carolina","NC","Bush, George H.W.","republican",43.44
+1992,"North Dakota","ND","Bush, George H.W.","republican",44.22
+1992,"Ohio","OH","Clinton, Bill","democrat",40.18
+1992,"Oklahoma","OK","Bush, George H.W.","republican",42.65
+1992,"Oregon","OR","Clinton, Bill","democrat",42.48
+1992,"Pennsylvania","PA","Clinton, Bill","democrat",45.15
+1992,"Rhode Island","RI","Clinton, Bill","democrat",47.05
+1992,"South Carolina","SC","Bush, George H.W.","republican",46.99
+1992,"South Dakota","SD","Bush, George H.W.","republican",40.66
+1992,"Tennessee","TN","Clinton, Bill","democrat",47.08
+1992,"Texas","TX","Bush, George H.W.","republican",40.56
+1992,"Utah","UT","Bush, George H.W.","republican",43.36
+1992,"Vermont","VT","Clinton, Bill","democrat",46.11
+1992,"Virginia","VA","Bush, George H.W.","republican",44.96
+1992,"Washington","WA","Clinton, Bill","democrat",43.41
+1992,"West Virginia","WV","Clinton, Bill","democrat",48.41
+1992,"Wisconsin","WI","Clinton, Bill","democrat",41.13
+1992,"Wyoming","WY","Bush, George H.W.","republican",39.7
+1996,"Alabama","AL","Dole, Robert","republican",50.12
+1996,"Alaska","AK","Dole, Robert","republican",50.8
+1996,"Arizona","AZ","Clinton, Bill","democrat",46.52
+1996,"Arkansas","AR","Clinton, Bill","democrat",53.74
+1996,"California","CA","Clinton, Bill","democrat",51.1
+1996,"Colorado","CO","Dole, Robert","republican",45.8
+1996,"Connecticut","CT","Clinton, Bill","democrat",52.83
+1996,"Delaware","DE","Clinton, Bill","democrat",51.83
+1996,"District of Columbia","DC","Clinton, Bill","democrat",85.19
+1996,"Florida","FL","Clinton, Bill","democrat",48.03
+1996,"Georgia","GA","Dole, Robert","republican",47.02
+1996,"Hawaii","HI","Clinton, Bill","democrat",56.93
+1996,"Idaho","ID","Dole, Robert","republican",52.18
+1996,"Illinois","IL","Clinton, Bill","democrat",54.32
+1996,"Indiana","IN","Dole, Robert","republican",47.14
+1996,"Iowa","IA","Clinton, Bill","democrat",50.26
+1996,"Kansas","KS","Dole, Robert","republican",54.29
+1996,"Kentucky","KY","Clinton, Bill","democrat",45.84
+1996,"Louisiana","LA","Clinton, Bill","democrat",52.01
+1996,"Maine","ME","Clinton, Bill","democrat",51.62
+1996,"Maryland","MD","Clinton, Bill","democrat",54.25
+1996,"Massachusetts","MA","Clinton, Bill","democrat",61.47
+1996,"Michigan","MI","Clinton, Bill","democrat",51.69
+1996,"Minnesota","MN","Clinton, Bill","democrat",51.1
+1996,"Mississippi","MS","Dole, Robert","republican",49.21
+1996,"Missouri","MO","Clinton, Bill","democrat",47.54
+1996,"Montana","MT","Dole, Robert","republican",44.13
+1996,"Nebraska","NE","Dole, Robert","republican",53.65
+1996,"Nevada","NV","Clinton, Bill","democrat",43.93
+1996,"New Hampshire","NH","Clinton, Bill","democrat",49.57
+1996,"New Jersey","NJ","Clinton, Bill","democrat",53.72
+1996,"New Mexico","NM","Clinton, Bill","democrat",49.18
+1996,"New York","NY","Clinton, Bill","democrat",56.68
+1996,"North Carolina","NC","Dole, Robert","republican",48.73
+1996,"North Dakota","ND","Dole, Robert","republican",46.94
+1996,"Ohio","OH","Clinton, Bill","democrat",47.38
+1996,"Oklahoma","OK","Dole, Robert","republican",48.26
+1996,"Oregon","OR","Clinton, Bill","democrat",47.15
+1996,"Pennsylvania","PA","Clinton, Bill","democrat",49.23
+1996,"Rhode Island","RI","Clinton, Bill","democrat",59.72
+1996,"South Carolina","SC","Dole, Robert","republican",49.85
+1996,"South Dakota","SD","Dole, Robert","republican",46.49
+1996,"Tennessee","TN","Clinton, Bill","democrat",48
+1996,"Texas","TX","Dole, Robert","republican",48.76
+1996,"Utah","UT","Dole, Robert","republican",54.37
+1996,"Vermont","VT","Clinton, Bill","democrat",53.35
+1996,"Virginia","VA","Dole, Robert","republican",47.1
+1996,"Washington","WA","Clinton, Bill","democrat",49.84
+1996,"West Virginia","WV","Clinton, Bill","democrat",51.51
+1996,"Wisconsin","WI","Clinton, Bill","democrat",48.81
+1996,"Wyoming","WY","Dole, Robert","republican",49.81
+2000,"Alabama","AL","Bush, George W.","republican",56.48
+2000,"Alaska","AK","Bush, George W.","republican",58.62
+2000,"Arizona","AZ","Bush, George W.","republican",51.02
+2000,"Arkansas","AR","Bush, George W.","republican",51.31
+2000,"California","CA","Gore, Al","democrat",53.45
+2000,"Colorado","CO","Bush, George W.","republican",50.75
+2000,"Connecticut","CT","Gore, Al","democrat",55.91
+2000,"Delaware","DE","Gore, Al","democrat",54.98
+2000,"District of Columbia","DC","Gore, Al","democrat",85.16
+2000,"Florida","FL","Bush, George W.","republican",48.85
+2000,"Georgia","GA","Bush, George W.","republican",54.96
+2000,"Hawaii","HI","Gore, Al","democrat",55.79
+2000,"Idaho","ID","Bush, George W.","republican",67.17
+2000,"Illinois","IL","Gore, Al","democrat",54.6
+2000,"Indiana","IN","Bush, George W.","republican",56.65
+2000,"Iowa","IA","Gore, Al","democrat",47.19
+2000,"Kansas","KS","Bush, George W.","republican",58.04
+2000,"Kentucky","KY","Bush, George W.","republican",56.51
+2000,"Louisiana","LA","Bush, George W.","republican",52.55
+2000,"Maine","ME","Gore, Al","democrat",49.09
+2000,"Maryland","MD","Gore, Al","democrat",56.49
+2000,"Massachusetts","MA","Gore, Al","democrat",59.13
+2000,"Michigan","MI","Gore, Al","democrat",51.28
+2000,"Minnesota","MN","Gore, Al","democratic-farmer-labor",47.91
+2000,"Mississippi","MS","Bush, George W.","republican",57.62
+2000,"Missouri","MO","Bush, George W.","republican",50.42
+2000,"Montana","MT","Bush, George W.","republican",58.44
+2000,"Nebraska","NE","Bush, George W.","republican",62.25
+2000,"Nevada","NV","Bush, George W.","republican",49.49
+2000,"New Hampshire","NH","Bush, George W.","republican",48.07
+2000,"New Jersey","NJ","Gore, Al","democrat",56.13
+2000,"New Mexico","NM","Gore, Al","democrat",47.91
+2000,"New York","NY","Gore, Al","democrat",56.64
+2000,"North Carolina","NC","Bush, George W.","republican",55.96
+2000,"North Dakota","ND","Bush, George W.","republican",60.66
+2000,"Ohio","OH","Bush, George W.","republican",49.99
+2000,"Oklahoma","OK","Bush, George W.","republican",60.31
+2000,"Oregon","OR","Gore, Al","democrat",46.96
+2000,"Pennsylvania","PA","Gore, Al","democrat",50.61
+2000,"Rhode Island","RI","Gore, Al","democrat",60.99
+2000,"South Carolina","SC","Bush, George W.","republican",56.86
+2000,"South Dakota","SD","Bush, George W.","republican",60.3
+2000,"Tennessee","TN","Bush, George W.","republican",51.15
+2000,"Texas","TX","Bush, George W.","republican",59.3
+2000,"Utah","UT","Bush, George W.","republican",66.83
+2000,"Vermont","VT","Gore, Al","democrat",50.63
+2000,"Virginia","VA","Bush, George W.","republican",52.47
+2000,"Washington","WA","Gore, Al","democrat",50.16
+2000,"West Virginia","WV","Bush, George W.","republican",51.92
+2000,"Wisconsin","WI","Gore, Al","democrat",47.83
+2000,"Wyoming","WY","Bush, George W.","republican",69.22
+2004,"Alabama","AL","Bush, George W.","republican",62.46
+2004,"Alaska","AK","Bush, George W.","republican",61.07
+2004,"Arizona","AZ","Bush, George W.","republican",54.87
+2004,"Arkansas","AR","Bush, George W.","republican",54.31
+2004,"California","CA","Kerry, John","democrat",54.31
+2004,"Colorado","CO","Bush, George W.","republican",51.71
+2004,"Connecticut","CT","Kerry, John","democrat",54.31
+2004,"Delaware","DE","Kerry, John","democrat",53.35
+2004,"District of Columbia","DC","Kerry, John","democrat",89.18
+2004,"Florida","FL","Bush, George W.","republican",52.1
+2004,"Georgia","GA","Bush, George W.","republican",57.97
+2004,"Hawaii","HI","Kerry, John","democrat",54.01
+2004,"Idaho","ID","Bush, George W.","republican",68.39
+2004,"Illinois","IL","Kerry, John","democrat",54.82
+2004,"Indiana","IN","Bush, George W.","republican",59.94
+2004,"Iowa","IA","Bush, George W.","republican",49.9
+2004,"Kansas","KS","Bush, George W.","republican",62
+2004,"Kentucky","KY","Bush, George W.","republican",59.55
+2004,"Louisiana","LA","Bush, George W.","republican",56.72
+2004,"Maine","ME","Kerry, John","democrat",53.57
+2004,"Maryland","MD","Kerry, John","democrat",55.97
+2004,"Massachusetts","MA","Kerry, John","democrat",61.62
+2004,"Michigan","MI","Kerry, John","democrat",51.23
+2004,"Minnesota","MN","Kerry, John","democratic-farmer-labor",51.09
+2004,"Mississippi","MS","Bush, George W.","republican",59.01
+2004,"Missouri","MO","Bush, George W.","republican",53.3
+2004,"Montana","MT","Bush, George W.","republican",59.07
+2004,"Nebraska","NE","Bush, George W.","republican",65.9
+2004,"Nevada","NV","Bush, George W.","republican",50.47
+2004,"New Hampshire","NH","Kerry, John","democrat",50.2
+2004,"New Jersey","NJ","Kerry, John","democrat",52.92
+2004,"New Mexico","NM","Bush, George W.","republican",49.84
+2004,"New York","NY","Kerry, John","democrat",56.13
+2004,"North Carolina","NC","Bush, George W.","republican",56.02
+2004,"North Dakota","ND","Bush, George W.","republican",62.86
+2004,"Ohio","OH","Bush, George W.","republican",50.81
+2004,"Oklahoma","OK","Bush, George W.","republican",65.57
+2004,"Oregon","OR","Kerry, John","democrat",51.35
+2004,"Pennsylvania","PA","Kerry, John","democrat",50.92
+2004,"Rhode Island","RI","Kerry, John","democrat",59.42
+2004,"South Carolina","SC","Bush, George W.","republican",57.98
+2004,"South Dakota","SD","Bush, George W.","republican",59.91
+2004,"Tennessee","TN","Bush, George W.","republican",56.8
+2004,"Texas","TX","Bush, George W.","republican",61.09
+2004,"Utah","UT","Bush, George W.","republican",71.54
+2004,"Vermont","VT","Kerry, John","democrat",58.94
+2004,"Virginia","VA","Bush, George W.","republican",53.73
+2004,"Washington","WA","Kerry, John","democrat",52.82
+2004,"West Virginia","WV","Bush, George W.","republican",56.07
+2004,"Wisconsin","WI","Kerry, John","democrat",49.7
+2004,"Wyoming","WY","Bush, George W.","republican",68.74
+2008,"Alabama","AL","McCain, John","republican",60.32
+2008,"Alaska","AK","McCain, John","republican",59.42
+2008,"Arizona","AZ","McCain, John","republican",53.64
+2008,"Arkansas","AR","McCain, John","republican",58.72
+2008,"California","CA","Obama, Barack H.","democrat",61.01
+2008,"Colorado","CO","Obama, Barack H.","democrat",53.66
+2008,"Connecticut","CT","Obama, Barack H.","democrat",60.59
+2008,"Delaware","DE","Obama, Barack H.","democrat",61.94
+2008,"District of Columbia","DC","Obama, Barack H.","democrat",92.46
+2008,"Florida","FL","Obama, Barack H.","democrat",51.03
+2008,"Georgia","GA","McCain, John","republican",52.2
+2008,"Hawaii","HI","Obama, Barack H.","democrat",71.45
+2008,"Idaho","ID","McCain, John","republican",61.52
+2008,"Illinois","IL","Obama, Barack H.","democrat",61.92
+2008,"Indiana","IN","Obama, Barack H.","democrat",49.95
+2008,"Iowa","IA","Obama, Barack H.","democrat",53.93
+2008,"Kansas","KS","McCain, John","republican",56.61
+2008,"Kentucky","KY","McCain, John","republican",57.4
+2008,"Louisiana","LA","McCain, John","republican",58.56
+2008,"Maine","ME","Obama, Barack H.","democrat",57.71
+2008,"Maryland","MD","Obama, Barack H.","democrat",61.92
+2008,"Massachusetts","MA","Obama, Barack H.","democrat",61.36
+2008,"Michigan","MI","Obama, Barack H.","democrat",57.43
+2008,"Minnesota","MN","Obama, Barack H.","democrat",54.06
+2008,"Mississippi","MS","McCain, John","republican",56.18
+2008,"Missouri","MO","McCain, John","republican",49.43
+2008,"Montana","MT","McCain, John","republican",49.53
+2008,"Nebraska","NE","McCain, John","republican",56.53
+2008,"Nevada","NV","Obama, Barack H.","democrat",55.15
+2008,"New Hampshire","NH","Obama, Barack H.","democrat",54.13
+2008,"New Jersey","NJ","Obama, Barack H.","democrat",57.27
+2008,"New Mexico","NM","Obama, Barack H.","democrat",56.91
+2008,"New York","NY","Obama, Barack H.","democrat",60.16
+2008,"North Carolina","NC","Obama, Barack H.","democrat",49.7
+2008,"North Dakota","ND","McCain, John","republican",53.25
+2008,"Ohio","OH","Obama, Barack H.","democrat",51.5
+2008,"Oklahoma","OK","McCain, John","republican",65.65
+2008,"Oregon","OR","Obama, Barack H.","democrat",56.75
+2008,"Pennsylvania","PA","Obama, Barack H.","democrat",54.49
+2008,"Rhode Island","RI","Obama, Barack H.","democrat",62.86
+2008,"South Carolina","SC","McCain, John","republican",53.87
+2008,"South Dakota","SD","McCain, John","republican",53.16
+2008,"Tennessee","TN","McCain, John","republican",56.9
+2008,"Texas","TX","McCain, John","republican",55.45
+2008,"Utah","UT","McCain, John","republican",62.58
+2008,"Vermont","VT","Obama, Barack H.","democrat",67.46
+2008,"Virginia","VA","Obama, Barack H.","democrat",52.63
+2008,"Washington","WA","Obama, Barack H.","democrat",57.65
+2008,"West Virginia","WV","McCain, John","republican",55.71
+2008,"Wisconsin","WI","Obama, Barack H.","democrat",56.22
+2008,"Wyoming","WY","McCain, John","republican",64.71
+2012,"Alabama","AL","Romney, Mitt","republican",60.55
+2012,"Alaska","AK","Romney, Mitt","republican",54.8
+2012,"Arizona","AZ","Romney, Mitt","republican",53.65
+2012,"Arkansas","AR","Romney, Mitt","republican",60.57
+2012,"California","CA","Obama, Barack H.","democrat",60.24
+2012,"Colorado","CO","Obama, Barack H.","democrat",51.49
+2012,"Connecticut","CT","Obama, Barack H.","democrat",58.09
+2012,"Delaware","DE","Obama, Barack H.","democrat",58.61
+2012,"District of Columbia","DC","Obama, Barack H.","democrat",90.91
+2012,"Florida","FL","Obama, Barack H.","democrat",50.01
+2012,"Georgia","GA","Romney, Mitt","republican",53.33
+2012,"Hawaii","HI","Obama, Barack H.","democrat",70.15
+2012,"Idaho","ID","Romney, Mitt","republican",64.53
+2012,"Illinois","IL","Obama, Barack H.","democrat",57.6
+2012,"Indiana","IN","Romney, Mitt","republican",54.13
+2012,"Iowa","IA","Obama, Barack H.","democrat",51.99
+2012,"Kansas","KS","Romney, Mitt","republican",59.71
+2012,"Kentucky","KY","Romney, Mitt","republican",60.49
+2012,"Louisiana","LA","Romney, Mitt","republican",57.78
+2012,"Maine","ME","Obama, Barack H.","democrat",55.37
+2012,"Maryland","MD","Obama, Barack H.","democrat",61.97
+2012,"Massachusetts","MA","Obama, Barack H.","democrat",60.34
+2012,"Michigan","MI","Obama, Barack H.","democrat",54.21
+2012,"Minnesota","MN","Obama, Barack H.","democratic-farmer-labor",52.65
+2012,"Mississippi","MS","Romney, Mitt","republican",55.29
+2012,"Missouri","MO","Romney, Mitt","republican",53.76
+2012,"Montana","MT","Romney, Mitt","republican",55.35
+2012,"Nebraska","NE","Romney, Mitt","democrat",59.8
+2012,"Nevada","NV","Obama, Barack H.","democrat",52.36
+2012,"New Hampshire","NH","Obama, Barack H.","democrat",51.98
+2012,"New Jersey","NJ","Obama, Barack H.","democrat",58.34
+2012,"New Mexico","NM","Obama, Barack H.","democrat",52.99
+2012,"New York","NY","Obama, Barack H.","democrat",60.76
+2012,"North Carolina","NC","Romney, Mitt","republican",50.39
+2012,"North Dakota","ND","Romney, Mitt","republican",58.32
+2012,"Ohio","OH","Obama, Barack H.","democrat",50.67
+2012,"Oklahoma","OK","Romney, Mitt","republican",66.77
+2012,"Oregon","OR","Obama, Barack H.","democrat",54.24
+2012,"Pennsylvania","PA","Obama, Barack H.","democrat",52.08
+2012,"Rhode Island","RI","Obama, Barack H.","democrat",62.7
+2012,"South Carolina","SC","Romney, Mitt","republican",54.56
+2012,"South Dakota","SD","Romney, Mitt","republican",57.89
+2012,"Tennessee","TN","Romney, Mitt","republican",59.48
+2012,"Texas","TX","Romney, Mitt","republican",57.17
+2012,"Utah","UT","Romney, Mitt","republican",72.79
+2012,"Vermont","VT","Obama, Barack H.","democrat",66.57
+2012,"Virginia","VA","Obama, Barack H.","democrat",51.16
+2012,"Washington","WA","Obama, Barack H.","democrat",56.16
+2012,"West Virginia","WV","Romney, Mitt","republican",62.3
+2012,"Wisconsin","WI","Obama, Barack H.","democrat",52.78
+2012,"Wyoming","WY","Romney, Mitt","republican",68.19
+2016,"Alabama","AL","Trump, Donald J.","republican",62.08
+2016,"Alaska","AK","Trump, Donald J.","republican",51.28
+2016,"Arizona","AZ","Trump, Donald J.","republican",48.67
+2016,"Arkansas","AR","Trump, Donald J.","republican",60.57
+2016,"California","CA","Clinton, Hillary","democrat",61.73
+2016,"Colorado","CO","Clinton, Hillary","democrat",48.16
+2016,"Connecticut","CT","Clinton, Hillary","democrat",54.57
+2016,"Delaware","DE","Clinton, Hillary","democrat",53.35
+2016,"District of Columbia","DC","Clinton, Hillary","democrat",90.48
+2016,"Florida","FL","Trump, Donald J.","republican",49.02
+2016,"Georgia","GA","Trump, Donald J.","republican",50.77
+2016,"Hawaii","HI","Clinton, Hillary","democrat",60.98
+2016,"Idaho","ID","Trump, Donald J.","republican",59.26
+2016,"Illinois","IL","Clinton, Hillary","democrat",55.83
+2016,"Indiana","IN","Trump, Donald J.","republican",56.94
+2016,"Iowa","IA","Trump, Donald J.","republican",51.16
+2016,"Kansas","KS","Trump, Donald J.","republican",56.65
+2016,"Kentucky","KY","Trump, Donald J.","republican",62.52
+2016,"Louisiana","LA","Trump, Donald J.","republican",58.09
+2016,"Maine","ME","Clinton, Hillary","democrat",46.35
+2016,"Maryland","MD","Clinton, Hillary","democrat",60.33
+2016,"Massachusetts","MA","Clinton, Hillary","democrat",59.05
+2016,"Michigan","MI","Trump, Donald J.","republican",47.5
+2016,"Minnesota","MN","Clinton, Hillary","democrat",46.45
+2016,"Mississippi","MS","Trump, Donald J.","republican",57.94
+2016,"Missouri","MO","Trump, Donald J.","republican",56.77
+2016,"Montana","MT","Trump, Donald J.","republican",56.47
+2016,"Nebraska","NE","Trump, Donald J.","republican",58.75
+2016,"Nevada","NV","Clinton, Hillary","democrat",47.92
+2016,"New Hampshire","NH","Clinton, Hillary","democrat",46.83
+2016,"New Jersey","NJ","Clinton, Hillary","democrat",55.45
+2016,"New Mexico","NM","Clinton, Hillary","democrat",48.26
+2016,"New York","NY","Clinton, Hillary","democrat",56.14
+2016,"North Carolina","NC","Trump, Donald J.","republican",49.83
+2016,"North Dakota","ND","Trump, Donald J.","republican",62.96
+2016,"Ohio","OH","Trump, Donald J.","republican",51.69
+2016,"Oklahoma","OK","Trump, Donald J.","republican",65.32
+2016,"Oregon","OR","Clinton, Hillary","democrat",50.07
+2016,"Pennsylvania","PA","Trump, Donald J.","republican",48.58
+2016,"Rhode Island","RI","Clinton, Hillary","democrat",54.41
+2016,"South Carolina","SC","Trump, Donald J.","republican",54.94
+2016,"South Dakota","SD","Trump, Donald J.","republican",61.53
+2016,"Tennessee","TN","Trump, Donald J.","republican",60.72
+2016,"Texas","TX","Trump, Donald J.","republican",52.23
+2016,"Utah","UT","Trump, Donald J.","republican",45.54
+2016,"Vermont","VT","Clinton, Hillary","democrat",55.72
+2016,"Virginia","VA","Clinton, Hillary","democrat",49.75
+2016,"Washington","WA","Clinton, Hillary","democrat",52.54
+2016,"West Virginia","WV","Trump, Donald J.","republican",68.63
+2016,"Wisconsin","WI","Trump, Donald J.","republican",47.22
+2016,"Wyoming","WY","Trump, Donald J.","republican",67.4
